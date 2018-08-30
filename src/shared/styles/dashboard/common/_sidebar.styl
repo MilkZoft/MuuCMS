@@ -1,0 +1,76 @@
+.Sidebar
+    background($colors.common.gray.two)
+    color($colors.common.white)
+    bottom 0
+    position fixed
+    top 0
+    width 250px
+    z-index 1000
+
+    &.hidden
+        @media Tablet
+            display none
+
+        @media Desktop
+            display block
+
+    .wrapper
+        height 100%
+        margin 0 auto
+        overflow hidden
+        padding-bottom 40px
+        position relative
+        z-index 200
+
+        .brand
+            a
+                color($colors.common.white)
+                fontSize(24px, bold)
+                text-indent 10px
+
+        .title
+            color($colors.common.gray.seven)
+            fontSize(12px)
+            margin-bottom 15px
+            margin-top 25px
+            padding-left 30px
+            text-transform uppercase
+
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+
+            li
+                position relative
+                transition background-color .2s
+
+                &.logout
+                &.dashboard
+                    .create
+                        display none
+
+                &.active
+                    background($colors.common.gray.one)
+                    box-shadow inset 3px 0 0 0 #00a8ff
+
+                &:hover
+                    background($colors.common.gray.one)
+
+                a
+                    color($colors.common.gray.C)
+                    fontSize(14px)
+                    display inline-block
+                    padding 10px 0 10px 30px
+                    text-decoration none
+                    transition background-color .2s
+                    width 66%
+
+                    &.create
+                        float right
+                        padding-right 20px
+                        text-align center
+                        width 2%
+
+                    &:hover
+                        color($colors.common.white)

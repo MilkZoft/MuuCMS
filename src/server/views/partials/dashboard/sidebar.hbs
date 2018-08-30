@@ -1,0 +1,20 @@
+<div class="wrapper">
+    <h2 class="brand"><a href="/"><i class="fa fa-pie-chart" aria-hidden="true"></i> {{ dashboard.title }}</a></h2>
+
+    <h4 class="title">APPS</h4>
+
+    <ul>
+        {{#each sidebarMenu}}
+            <li class="{{ active }}">
+                <a href="{{ basePath }}{{ url }}" data-content-key="{{ contentKey }}">
+                    <i class="fa {{ iconClass }}"></i> &nbsp;
+                    {{ title }}
+                </a>
+
+                <a href="{{ basePath }}{{ url }}/create" class="{{ active }} create">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</div>

@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "api": {
+    "enable": false,
+    "url": "http://localhost:3000/api/"
+  },
+  "cache": {
+    "enable": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "baseUrl": "https://www.muucms.com",
+  "api": {
+    "enable": true,
+    "url": "https://www.muucms.com/api/"
+  },
+  "cache": {
+    "enable": false
+  },
+  "db": {
+    "mysql": {
+      "host": "localhost",
+      "user": "root",
+      "password": "",
+      "database": "muucms",
+      "port": 3306,
+      "debug": true,
+      "socket": "/var/mysql/mysql.sock"
+    }
+  },
+  "session": {
+    "cookieDomain": ".muucms.com",
+    "maxAge": 43200,
+    "cookiePrefix": "",
+    "path": "/",
+    "httpOnly": true
+  }
+}

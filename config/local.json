@@ -1,0 +1,21 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "api": {
+    "enable": true,
+    "url": "http://localhost:3000/api/"
+  },
+  "cache": {
+    "enable": false
+  },
+  "db": {
+    "mysql": {
+      "host": "localhost",
+      "user": "root",
+      "password": "12345678",
+      "database": "muucms",
+      "port": 3306,
+      "debug": true,
+      "socket": "/var/mysql/mysql.sock"
+    }
+  }
+}

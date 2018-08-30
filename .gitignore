@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Optional eslint cache
+.eslintcache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Build directory
+dist/
+
+# Public
+*.hot-update.js
+*.hot-update.json
+public/css/*.css
+public/css/style.css.gz
+public/**/*.bundle.js
+public/**/*.bundle.js.gz
+public/app/report.html
+public/bower_components
+public/media
+package-lock.json
+.DS_Store
+dump.rdb
+
+# Test
+coverage
+.vscode/settings.json
+
+v8-compile-cache-0
+jest_0

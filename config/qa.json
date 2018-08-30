@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://qa.muucms.com:3000",
+  "api": {
+    "enable": true,
+    "url": "http://qa.muucms.com:3000/api/"
+  },
+  "cache": {
+    "enable": true
+  }
+}

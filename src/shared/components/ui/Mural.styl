@@ -1,0 +1,58 @@
+@import '../../styles/_dependencies'
+
+.mural
+    font($font.family.avenirRoman)
+    align-items: center
+    background-color #3197d6
+    display flex
+    justify-content center
+    width 100%
+
+    .wrapper
+        align-items center
+        color white
+        height 400px
+        justify-content center
+        justify-content space-around
+        padding-top 80px
+        max-width 1280px
+        text-align center
+
+        @media Mobile
+            height 300px
+            width 98%
+
+        h1
+            bold()
+            uppercase()
+            color($colors.common.white)
+            text-align center
+            margin-bottom 25px
+
+            .blue
+                color($colors.technologies.react.color)
+
+            .purple
+                color($colors.technologies.redux.color)
+
+            @media Tablet
+                fontSize($font.size.xLarge)
+                margin 0
+
+        p
+            color($colors.common.white)
+            text-align center
+
+            &.callToAction
+                fontSize($font.size.xxLarge)
+
+                margin-top 20px
+
+                @media Mobile
+                    fontSize($font.size.xLarge)
+
+            img
+                max-width 12%
+
+                @media Mobile
+                    max-width 15%

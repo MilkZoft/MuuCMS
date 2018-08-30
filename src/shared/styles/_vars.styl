@@ -1,0 +1,236 @@
+// Global colors
+$colors = {
+    main: {
+        first: #0073BC,
+        second: #FF2D55
+    },
+    specific: {
+        mandy: #ff8882
+    },
+    common: {
+        black: #000,
+        blue: #42B3EB,
+        blueHover: #41ADE2,
+        red: #FF0000,
+        gray: {
+            one: #111,
+            two: #222,
+            three: #333,
+            four: #444,
+            five: #555,
+            six: #666,
+            seven: #777,
+            eight: #888,
+            nine: #999,
+            A: #AAA,
+            B: #BBB,
+            C: #CCC,
+            D: #DDD,
+            E: #EEE,
+            F: #F9F9F9
+        },
+        green: #1D9A90,
+        pink: #FF2D55,
+        red: #FC1C49,
+        white: #FFF,
+        yellow: #F6D42A
+    },
+    dashboard: {
+        darkBlue: #172B44,
+        media: #002642
+    },
+    login: {
+        bg: #364150,
+        color: #8290A3
+    },
+    social: {
+        facebook: #3B5998,
+        twitter: #4099FF
+    },
+    technologies: {
+        angular: {
+            bg: #FFC3CD
+        },
+        react: {
+            bg: #BBF0FF,
+            color: #5BDAFD
+        },
+        redux: {
+            color: #7745BF
+        },
+        html5: {
+            bg: #FFC1AF
+        },
+        node: {
+            bg: #E4FFC3
+        },
+        php: {
+            bg: #B5C6FF
+        },
+        vue: {
+            bg: #AAF3D3
+        }
+    },
+    states: {
+        danger: #ED1C24,
+        info: #2EA1F8,
+        success: #1BB935,
+        warning: #FD9A18
+    },
+    buttons: {
+        signIn: {
+            border: #9498BB,
+            bg: #2E293C,
+            hover: #B2B9D6
+        },
+        dark: {
+            border: #222,
+            end: #111,
+            shadow: #555,
+            start: #333
+        },
+        danger: {
+            border: #D02718,
+            end: #C62D1F,
+            shadow: #F5978E,
+            start: #F24537
+        },
+        default: {
+            border: #DCDCDC,
+            end: #E9E9E9,
+            shadow: #FFF,
+            start: #F9F9F9
+        },
+        primary: {
+            border: #124D77,
+            end: #0061A7,
+            shadow: #54A3F7,
+            start: #007DC1
+        },
+        success: {
+            border: #3B6E22,
+            end: #68A54B,
+            shadow: #9ACC85,
+            start: #74AD5A
+        },
+        warning: {
+            border: #FFAA22,
+            end: #FFAB23,
+            shadow: #FFF6AF,
+            start: #FFEC64
+        }
+    }
+}
+
+// Font sizes
+$font = {
+    family: {
+        avenirRoman: 'AvenirRoman',
+        avenirLight: 'AvenirLight',
+        openSans: 'OpenSans',
+        sourceCodePro: 'SourceCodePro',
+        sourceSansPro: 'SourceSansPro',
+    },
+    size: {
+        xxxLarge: 48px,
+        xxLarge: 32px,
+        xLarge: 24px,
+        larger: 19px,
+        large: 18px,
+        big: 17px,
+        regular: 16px,
+        medium: 14px,
+        small: 13px,
+        smaller: 12px,
+        xSmall: 10px,
+        xxSmall: 9px,
+        xxxSmall: 8px,
+    },
+    weight: {
+        light: 100,
+        normal: 400,
+        bold: 700,
+        heavy: 900
+    }
+}
+
+// Breakpoints
+$breakpoints = {
+    desktop: {
+        large: 1024px,
+        xLarge: 1280px,
+        xxLarge: 1600px,
+        xxxLarge: 1920px
+    },
+    tablet: {
+        portrait: 1023px,
+        landscape: 1024px
+    },
+    mobile: {
+        portrait: 640px,
+        landscape: 736px,
+    },
+    devices: {
+        iPad: {
+            portrait: 768px,
+            landscape: 1024px
+        },
+        iPhone: {
+            five: {
+                portrait: 320px,
+                landscape: 568px,
+                aspectRatio: '40/71'
+            },
+            seven: {
+                portrait: 375px,
+                landscape: 667px,
+                aspectRatio: '375/667',
+                pixelRatio: 2
+            },
+            sevenPlus: {
+                portrait: 414px,
+                landscape: 736px,
+                pixelRatio: 3
+            }
+        },
+        android: {
+            galaxy: {
+                eight: {
+                    portrait: 360px,
+                    landscape: 640px,
+                    pixelRatio: 3
+                },
+                S7: {
+                    portrait: 360px,
+                    landscape: 640px,
+                    pixelRatio: 4
+                }
+            }
+        }
+    }
+}
+
+/* Media Queries */
+$s          = 'only screen and'
+$l          = 'orientation: landscape'
+$maxW       = 'max-width:'
+$minW       = 'min-width:'
+$maxWDevice = 'max-device-width:'
+$minWDevice = 'min-width-width:'
+
+/* General Devices */
+Desktop          = $s + ' (' + $minW + $breakpoints.desktop.large + ')'
+Tablet           = $s + ' (' + $maxW + $breakpoints.tablet.portrait + ')'
+TabletLandscape  = $s + ' (' + $maxW + $breakpoints.tablet.portrait + ') and (' + $l + ')'
+Mobile           = $s + ' (' + $maxW + $breakpoints.mobile.portrait + ')'
+MobileLandscape  = $s + ' (' + $maxW + $breakpoints.mobile.portrait + ') and (' + $l + ')'
+
+/* Specific Devices */
+iPad              = $s + ' (' + $maxWDevice + $breakpoints.devices.iPad.portrait + ')'
+iPadLandscape     = $s + ' (' + $maxWDevice + $breakpoints.devices.iPad.landscape + ') and (' + $l + ')'
+iPhone6P          = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.sevenPlus.portrait  + ')'
+iPhone6PLandscape = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.sevenPlus.landscape + ') and (' + $l + ')'
+iPhone6           = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.seven.portrait  + ')'
+iPhone6Landscape  = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.seven.landscape  + ') and (' + $l + ')'
+iPhone5           = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.five.portrait  + ')'
+iPhone5Landscape  = $s + ' (' + $maxWDevice + $breakpoints.devices.iPhone.five.landscape  + ') and (' + $l + ')'

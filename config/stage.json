@@ -1,0 +1,10 @@
+{
+  "baseUrl": "http://stage.muucms.com:3000",
+  "api": {
+    "enable": true,
+    "url": "http://stage.muucms.com:3000/api/"
+  },
+  "cache": {
+    "enable": true
+  }
+}

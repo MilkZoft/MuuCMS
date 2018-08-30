@@ -1,0 +1,129 @@
+{
+  "app": {
+    "default": "blog",
+    "allowed": {
+      "blog": {
+        "frontend": true,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.blog.name",
+          "icon": "fa-book"
+        },
+        "schema": {
+          "fields": "id, title, language, author, state",
+          "required": "title, slug, content, author",
+          "hidden": "year:getYear, month:getMonth, day:getDay, categorySlug",
+          "validation": "title, slug, day, month, year",
+          "relationships": [
+            {
+              "table": "categories",
+              "field": "category",
+              "id": false,
+              "bind": {
+                "field": "categorySlug",
+                "apply": "slug"
+              }
+            }
+          ]
+        }
+      },
+      "categories": {
+        "frontend": false,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.categories.name",
+          "icon": "fa-cubes"
+        },
+        "schema": {
+          "fields": "id, category, slug, state",
+          "required": "category, slug",
+          "validation": "category, slug"
+        }
+      },
+      "configuration": {
+        "frontend": false,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.configuration.name",
+          "icon": "fa-cog"
+        },
+        "schema": {
+          "fields": "id, title, theme, application, language, state",
+          "required": "title, theme, application, language, languages"
+        }
+      },
+      "contact": {
+        "frontend": true,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.contact.name",
+          "icon": "fa-envelope"
+        },
+        "schema": {
+          "fields": "id, name, email, state",
+          "hidden": "createdAt:now"
+        }
+      },
+      "forgotPassword": {
+        "frontend": true,
+        "backend": false,
+        "schema": {
+          "fields": "id, name, email, state",
+          "hidden": "createdAt:now"
+        }
+      },
+      "content": {
+        "frontend": false,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.content.name",
+          "icon": "fa-language"
+        },
+        "schema": {
+          "fields": "id, name, value, language, state",
+          "required": "name, value",
+          "validation": "name, value, language"
+        }
+      },
+      "login": {
+        "frontend": true,
+        "backend": false
+      },
+      "pages": {
+        "frontend": true,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.pages.name",
+          "icon": "fa-newspaper-o"
+        },
+        "schema": {
+          "fields": "id, title, author, language, state",
+          "required": "title, slug, content, author"
+        }
+      },
+      "profile": {
+        "frontend": true,
+        "backend": false
+      },
+      "register": {
+        "frontend": true,
+        "backend": false
+      },
+      "users": {
+        "frontend": true,
+        "backend": true,
+        "dashboard": {
+          "contentKey": "Dashboard.modules.users.name",
+          "icon": "fa-users"
+        },
+        "schema": {
+          "fields": "id, network, username, email, privilege, state",
+          "required": "network, username, email, privilege",
+          "validation": "network, username, email"
+        }
+      }
+    },
+    "mainTitle": "MuuCMS",
+    "debug": true
+  }
+}

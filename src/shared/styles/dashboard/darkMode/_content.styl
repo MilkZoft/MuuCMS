@@ -1,0 +1,59 @@
+.Content
+    .container
+        &.readAction
+            .readAction
+                .searching
+                    color($colors.common.white)
+
+        .Create
+        .Update
+            .inputBlock
+                label
+                    color($colors.common.gray.C)
+
+                a
+                    color($colors.common.white)
+
+            .editor
+                border(rgba(white,.3), 1px, solid)
+                color($colors.common.white)
+
+            .select
+                background($colors.common.black)
+                border(rgba(white,.3), 1px, solid)
+                color($colors.common.gray.C)
+
+        .Home
+            .wrap
+                background(transparent)
+                border(rgba($colors.common.white,.3), 1px, solid)
+
+                li
+                    borderBottom(rgba($colors.common.white,.3), 1px, solid)
+
+                    a
+                        color($colors.common.gray.C)
+
+            .lastPosts
+                a
+                    &:first-child
+                        &:hover
+                            color(lighten($colors.common.gray.three,15%))
+
+                    &:last-child
+                        color($colors.common.gray.three)
+
+                        &:hover
+                            color(lighten($colors.common.gray.three,15%))
+
+            .lastUsers
+                a
+                    &:hover
+                        color(lighten($colors.common.gray.three,15%))
+
+            .lastMessages
+                a
+                    color(lighten($colors.common.gray.three,15%))
+
+                p
+                    color($colors.common.gray.C)

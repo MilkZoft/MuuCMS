@@ -1,0 +1,128 @@
+@import '../../../styles/_dependencies'
+
+.mainNav
+    align-items center
+    display flex
+    height 90px
+    padding 0 50px
+    width 100%
+
+    @media Tablet
+        background-color white
+        display block
+        height auto
+        padding 0 30px
+
+    .hamburger
+        i
+            color($colors.common.gray.eight)
+
+    .mobileNav
+        display none
+
+        @media Tablet
+            display flex
+            justify-content space-between
+            align-items center
+            padding 20px 0px
+
+            i
+                fontSize(35px)
+                cursor pointer
+
+        @media Mobile
+            padding 0
+
+    .desktopMenu
+    .mobileMenu
+        resetList()
+        align-items center
+        display grid
+        grid-template-columns repeat(8, 1fr)
+        grid-template-rows 60px
+        justify-items center
+        margin 0 auto
+        max-width 1280px
+        overflow hidden
+
+        @media Tablet
+            grid-template-columns 1fr
+            grid-template-rows repeat(7, 50px)
+            transition .5s ease-in-out
+            height 360px
+
+            li
+                margin: 10px
+
+                &:first-child
+                    display none
+
+                &:nth-child(6)
+                    span
+                        border()
+
+                        &:after
+                            color($colors.common.gray.nine)
+                            cursor pointer
+                            content 'Search'
+                            margin-left 5px
+
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8)
+                    justify-self center
+                    text-align center
+                    width 100%
+
+        li
+            &.languages
+                a
+                    display inline-block
+
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(8)
+                justify-self end
+                margin-right 5px
+
+            .btn
+                font($font.family.openSans, $font.size.medium)
+                color($colors.common.white)
+                border-radius 5px
+                line-height 1.4
+                padding 14px 20px
+                text-indent 4px
+                width 100%
+
+                @media Tablet
+                    border-radius 0px
+                    margin 0 auto
+
+                &.login
+                    background($colors.common.gray.two)
+
+                    &:hover
+                        color($colors.common.white)
+                        background($colors.common.gray.three)
+
+                &.register
+                    background($colors.common.blue)
+
+                    &:hover
+                        color($colors.common.white)
+                        background($colors.common.blueHover)
+
+        a
+            color($colors.common.gray.four)
+            bold()
+            display block
+
+            @media Mobile
+                color($colors.common.gray.six)
+
+            &:hover
+                color($colors.main.first)
+
+    .hiddenMenu
+        @media Tablet
+            height 0

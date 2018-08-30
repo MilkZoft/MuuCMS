@@ -1,0 +1,70 @@
+@import '../../../styles/_dependencies'
+
+.page404
+    align-items center
+    display flex
+    flex-wrap wrap
+    justify-content center
+    padding 20px
+    width 100%
+
+    @media Mobile
+        align-content flex-start
+        padding 50px 20px
+
+    img
+        margin-right 50px
+        width 350px
+
+        @media Tablet
+            margin-right 0
+            width 250px
+
+        @media Mobile
+            margin-bottom 20px
+            width 150px
+
+    .notFound
+        @media Mobile
+            text-align center
+
+        h1
+            color($colors.main.first)
+            fontSize(208px)
+
+            @media Tablet
+                fontSize(160px)
+
+            @media Mobile
+                fontSize(112px)
+
+        span
+            fontSize(29px)
+
+            @media Tablet
+                fontSize(24px)
+
+        p
+            color($colors.common.gray.A)
+            fontSize(24px)
+            margin 30px 0 80px 0
+
+            @media Tablet
+                fontSize(16px)
+
+            @media Mobile
+              margin 20px 0 80px 0
+
+        a
+            color($colors.common.black)
+            fontSize(24px)
+            text-decoration none
+
+            &:hover
+              color($colors.main.first)
+
+            @media Tablet
+              fontSize(16px)
+
+          i
+            margin-left 15px

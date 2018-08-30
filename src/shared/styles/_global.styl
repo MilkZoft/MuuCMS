@@ -1,0 +1,110 @@
+@import './_mixins'
+
+*
+  box-sizing border-box
+  margin 0
+  padding 0
+
+body
+    background($colors.common.white)
+    color($colors.common.gray.three)
+    font($font.family.avenirRoman)
+    overflow-x hidden
+    margin 0
+
+    input-webkit-autofill
+        prefix(box-shadow, 0 0 0px 1000px $colors.common.gray.C inset)
+
+    a
+        text-decoration none
+
+    input
+        appearance none
+        background-clip padding-box
+        outline none
+
+    pre
+        border-radius 5px
+
+        code
+            font($font.family.sourceCodePro, $font.size.medium)
+
+    .hidden
+        display none
+
+    .pointer
+        cursor pointer
+
+    main
+        display flex
+        flex-direction column
+
+        .categories
+            width 100%
+
+            h1
+                color($colors.common.gray.four)
+                fontSize(40px)
+                bold()
+                display block
+                text-align center
+                margin-bottom 20px
+
+            .nav
+                border-bottom: 1px solid $colors.common.gray.E
+                display block
+                margin-bottom 40px
+                padding-bottom 15px
+                text-align center
+
+                ul
+                    list-style none
+                    padding 0
+
+                    li
+                        display inline-block
+                        margin -1px
+                        margin-bottom 5px
+
+                    a
+                        background($colors.main.first)
+                        color($colors.common.gray.E)
+                        fontSize(19px)
+                        display block
+                        margin 0
+                        padding 8px 8px
+
+            .category
+                border-bottom: 1px solid $colors.common.gray.F
+                margin 0 auto
+                padding 20px 30px
+                width 80%
+
+                .title
+                    color($colors.common.gray.eight)
+                    fontSize(19px)
+                    display block
+
+                .list
+                    fontSize(0px)
+                    padding 15px
+
+                    .item
+                        color($colors.main.first)
+                        fontSize(17px)
+                        position relative
+                        box-sizing border-box
+                        display inline-block
+                        padding 10px 12px
+                        vertical-align middle
+                        width 33%
+
+                        @media Mobile
+                            width 100%
+
+                        .name
+                            display inline-block
+                            width 70%
+
+                            @media Mobile
+                                width 100%

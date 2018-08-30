@@ -1,0 +1,71 @@
+{
+  "appName": "muucms",
+  "serverPort": 3000,
+  "dashboard": {
+    "title": "MuuCMS"
+  },
+  "cache": {
+    "host": "127.0.0.1",
+    "port": 6379,
+    "expirationTime": 3600
+  },
+  "views": {
+    "engine": ".hbs",
+    "extension": ".hbs",
+    "layout": "main"
+  },
+  "languages": {
+    "default": "en",
+    "list": [
+      "en",
+      "es"
+    ]
+  },
+  "security": {
+    "secret": "MuvCM5$",
+    "validateSecurityToken": true,
+    "refreshSecurityToken": true
+  },
+  "session": {
+    "cookieDomain": "localhost",
+    "maxAge": 43200,
+    "cookiePrefix": "",
+    "path": "/",
+    "httpOnly": true
+  },
+
+  "social": {
+    "facebook": {
+      "account": "Codejobs",
+      "clientId": 1600036133416233,
+      "clientSecret": "eebce64c8ba56f8896b9df9378340512",
+      "callbackUrl": "/auth/facebook/callback",
+      "profileFields": [
+        "email",
+        "first_name",
+        "last_name",
+        "gender",
+        "picture.height(250)"
+      ],
+      "scope": [
+        "email",
+        "public_profile"
+      ]
+    },
+    "twitter": {
+      "account": "MakDevTest",
+      "consumerKey": "tKp1KNF8oPu4v8bCO7JFsVU3S",
+      "consumerSecret": "m7mK8hdiyv3qgh3Id3bNbesGbP2aeA7ubynG4sm5S7kUbcYNUc",
+      "userProfileURL": "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true",
+      "accessToken": "461804603-BU48jspkEnOx2FXXIeOpY7I3tCTMpjJjs3xGtzCH",
+      "accessTokenSecret": "2oXa1cPSr30QzUCLgJvC6OIXgUDdRk4VnwXgjvG8WO6aw",
+      "callbackUrl": "/auth/twitter/callback",
+      "requestTokenUrl": "https://api.twitter.com/oauth/request_token",
+      "accessTokenUrl": "https://api.twitter.com/oauth/access_token",
+      "authenticateUrl": "https://twitter.com/oauth/authenticate",
+      "apiUrl": "https://api.twitter.com/1.1/",
+      "apiVersion": "1.0A",
+      "signMethod": "HMAC-SHA1"
+    }
+  }
+}

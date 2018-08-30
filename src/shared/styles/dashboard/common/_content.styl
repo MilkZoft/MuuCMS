@@ -1,0 +1,253 @@
+.Content
+    margin-bottom 40px
+    margin-left 250px
+    min-width 100%
+
+    @media Tablet
+        margin-bottom 40px
+        margin-left 0
+
+    .container
+        padding-left 20px
+        width 80%
+
+        +maxBreakpoint(1024px)
+            width 70%
+
+        @media Tablet
+            width 98%
+
+        @media Mobile
+            padding-left 7px
+
+        h1
+            font($font.family.openSans)
+            uppercase()
+
+        &.readAction
+            .readAction
+                display flex
+                flex-direction column
+                flex-wrap wrap
+                position relative
+
+                @media Tablet
+                    display block
+
+                .backupLink
+                    a
+                        color($colors.common.gray.seven)
+
+                    @media Tablet
+                        display none
+
+                a.btn
+                    @media Mobile
+                        width 88%
+
+                .search
+                    left 220px
+                    position absolute
+                    top 15px
+                    width 80%
+
+                    @media Tablet
+                        top 0px
+
+                    @media Mobile
+                        display none
+
+                    input[type="text"]
+                        color($colors.common.gray.three)
+                        fontSize($font.size.small)
+                        position(absolute)
+                        height 34px
+                        margin-right 10px
+                        padding-left 5px
+                        padding-right 5px
+                        width 163px
+
+                    input[type="submit"]
+                        position(absolute, false, false, false, 190px)
+
+                    .searching
+                        fontSize($font.size.small)
+                        position(absolute, 45px)
+
+        .Create
+        .Update
+            h2
+                font($font.family.openSans)
+                uppercase()
+
+            .errorBorder
+                border($colors.common.red)
+
+            .pointer
+                cursor(pointer)
+
+            .leftBlock
+                float left
+                width 65%
+
+            .rightBlock
+                float left
+                width 30%
+
+            .centralBlock
+                float left
+                width 90%
+
+            .inputBlock
+                label
+                    bold()
+
+                    .errorMessage
+                        fontSize($font.size.smaller)
+                        color($colors.common.red)
+
+            .input
+                height 40px
+                padding 5px
+                width 90%
+
+                @media Mobile
+                    width 95%
+
+            .editor
+                border($colors.common.gray.D)
+                height 400px
+                padding 5px
+                width 91%
+
+                @media Mobile
+                    width 98%
+
+            .ql-toolbar
+                width 91%
+
+                @media Mobile
+                    width 98%
+
+            .ql-excerptShowHtmlafter
+            .ql-contentShowHtmlafter
+                content '[html]'
+
+            .select
+                background($colors.common.white)
+                border($colors.common.gray.D)
+                fontNormal()
+                fontSize($font.size.regular)
+                prefix(box-sizing, border-box)
+                height 54px
+                line-height 54px
+                padding-left 5px
+                text-transform capitalize
+                vertical-align middle
+                width 56%
+
+                &.temporal
+                    text-transform none
+
+            .submit
+                text-transform capitalize
+
+                @media Tablet
+                    display block
+                    margin-bottom 90px
+                    margin-top 30px
+                    width 25%
+
+            #codes
+                font($font.family.sourceCodePro, $font.size.smaller)
+
+        .Home
+            align-items start
+            display grid
+            grid-gap 20px
+            grid-template-columns repeat(3, 1fr)
+            padding 50px
+
+            @media Tablet
+                grid-template-columns 1fr
+                padding 20px
+
+            h4
+                fontSize(14px)
+                color($colors.common.gray.six)
+                padding 0 0 20px 0
+
+            .wrap
+                border-radius 4px
+                border($colors.common.gray.E)
+                padding 25px
+
+                li
+                    align-items center
+                    border-bottom: 1px solid $colors.common.gray.E
+                    display flex
+                    padding 11px 0
+
+            .lastPosts
+                grid-column 1 / span 3
+
+                @media Tablet
+                    grid-row 1 / span 1
+
+                li
+                    justify-content space-between
+
+                    a
+                        &:first-child
+                            margin-right 10px
+
+                        &:hover
+                            color($colors.common.blue)
+
+                        &:last-child
+                            color($colors.common.blue)
+
+                        &:hover
+                            color($colors.main.first)
+
+            .lastUsers
+                @media Tablet
+                    grid-row 2 / span 1
+
+                img
+                    border-radius 50%
+                    display block
+                    height 20px
+                    width 20px
+
+                a
+                    margin 0 10px
+
+                span
+                    fontSize(11px)
+                    color($colors.common.gray.nine)
+
+            .lastMessages
+                grid-column 2 / span 2
+
+                @media Tablet
+                    grid-row 3 / span 1
+
+                li
+                    align-items flex-start
+                    flex-direction column
+
+                    a
+                        color($colors.common.blue)
+                        margin-bottom 10px
+
+                        &:hover
+                            color($colors.main.first)
+
+            .lastMessages,
+            .lastUsers,
+            .lastPosts
+                background($colors.common.white)
+
+                @media Tablet
+                    grid-column 1 / span 1

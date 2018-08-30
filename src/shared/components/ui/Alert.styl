@@ -1,0 +1,37 @@
+@import '../../styles/_dependencies'
+
+.alert
+    color($colors.common.white)
+    display inline-block
+    position relative
+    margin 0 0 15px
+    padding 15px
+    transition all .3s
+    border-radius 4px
+
+    &.general
+        margin 0 0 15px
+
+    &.forgotPassword
+        width: 100%
+
+    &.login
+        margin-left 25px
+        margin-top 25px
+        width 90%
+
+        @media Mobile
+            margin-left 15px
+            width 88%
+
+    &.success
+        background($colors.states.success)
+
+    &.info
+        background($colors.states.info)
+
+    &.warning
+        background($colors.states.warning)
+
+    &.danger
+        background($colors.states.danger)

@@ -1,0 +1,39 @@
+@import '../../../styles/_dependencies'
+
+.topNav
+    background($colors.common.black)
+    color($colors.common.white)
+    height 40px
+    line-height 40px
+
+    @media Tablet
+        line-height 48px
+
+    .wrapper
+        center()
+        width 80%
+
+        ul
+            fontSize($font.size.medium)
+            resetList()
+            text-align center
+
+            @media Tablet
+                center()
+                fontSize($font.size.xxLarge)
+                width 191px
+
+            li
+                display inline-block
+                padding-right 15px
+                text-align center
+
+                a
+                    color($colors.common.white)
+
+                    &:hover
+                        color($colors.main.second)
+
+                    span
+                        @media Tablet
+                            display none

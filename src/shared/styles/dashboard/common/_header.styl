@@ -1,0 +1,39 @@
+.navbar
+    align-items center
+    display flex
+    flex-wrap wrap
+    height 80px
+    min-width 100%
+    padding 13px 30px
+    position relative
+    margin-bottom 20px
+    position relative
+
+    i.theme
+        fontSize(24px)
+        position absolute
+        left 80%
+        top 40px
+
+        +maxBreakpoint(1600px)
+            left 70%
+
+        @media Tablet
+            left 85%
+
+        @media Mobile
+            left 75%
+
+    h2
+        text-transform capitalize
+
+    nav
+        display none
+
+        @media Tablet
+            display block
+
+        a
+            color($colors.common.gray.five)
+            fontSize(36px)
+            cursor(pointer)

@@ -1,0 +1,48 @@
+.pagination
+    resetList()
+    color($colors.common.gray.three)
+    margin 0 auto
+    margin-top 40px
+    text-align center
+    width 100%
+
+    &.darkMode
+        li
+            a
+                color white
+
+    @media Tablet
+        fontSize($font.size.small)
+
+    @media Mobile
+        margin-left 0
+
+    li
+        display inline-block
+        padding 4px 6px 4px 0
+        text-align center
+
+        @media Mobile
+            padding 2px 3px 2px 0
+
+        a
+            color($colors.common.black)
+            border-radius 5px
+            float left
+            padding 8px 16px
+            text-decoration none
+
+            @media Mobile
+                padding 4px 8px
+
+            &:hover
+                color($colors.common.black)
+                background($colors.common.gray.D)
+
+            &.active
+                background($colors.common.blue)
+                color($colors.common.white)
+                border-radius 5px
+
+                &:hover
+                    color($colors.common.white)

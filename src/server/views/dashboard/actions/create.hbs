@@ -1,0 +1,25 @@
+<div class="Create">
+    {{#if message }}
+        <h3>{{{ message }}}</h3>
+    {{/if}}
+
+    {{{
+        renderSchema
+            __ = __
+            action = action
+            basePath = basePath
+            connectedUser = connectedUser
+            currentDashboardApp = currentDashboardApp
+            flashData = flashData
+            schema = schema
+            securityToken = securityToken
+    }}}
+
+    {{{
+        renderMedia
+            __ = __
+            basePath = basePath
+            media = media
+            currentDashboardApp = currentDashboardApp
+    }}}
+</div>

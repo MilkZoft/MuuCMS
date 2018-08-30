@@ -1,0 +1,226 @@
+breakpoint($minSize, $maxSize)
+    @media only screen and (min-width: $minSize) and (max-width: $maxSize)
+        {block}
+
+maxBreakpoint($size)
+    @media only screen and (max-width: $size)
+        {block}
+
+minBreakpoint($size)
+    @media only screen and (min-width: $size)
+        {block}
+
+background($bgColor)
+    background-color $bgColor
+
+color($color)
+    color $color
+
+bgImage($url, $repeat = no-repeat)
+    background-image url($url)
+    background-repeat $repeat
+
+bgGradient($startColor, $endColor)
+    background -moz-linear-gradient(top, $startColor 5%, $endColor 100%)
+    background -ms-linear-gradient(top, $startColor 5%, $endColor 100%)
+    background -o-linear-gradient(top, $startColor 5%, $endColor 100%)
+    background -webkit-gradient(linear, left top, left bottom, color-stop(0.05, $startColor), color-stop(1, $endColor))
+    background -webkit-linear-gradient(top, $startColor 5%, $endColor 100%)
+    background linear-gradient(to bottom, $startColor 5%, $endColor 100%)
+
+border($color = red, $size = 1px, $type = solid)
+    border $size $type $color
+
+borderBottom($color = red, $size = 1px, $type = solid)
+    border-bottom $size $type $color
+
+borderTop($color = red, $size = 1px, $type = solid)
+    border-top $size $type $color
+
+borderLeft($color = red, $size = 1px, $type = solid)
+    border-left $size $type $color
+
+borderRight($color = red, $size = 1px, $type = solid)
+    border-right $size $type $color
+
+boxShadow($h = 2px, $v = 2px, $blur = 2px, $opacity = 0.3, $inset = false)
+    if (!$inset)
+        box-shadow $h $v $blur rgba(0, 0, 0, $opacity)
+    else
+        box-shadow inset $h $v $blur rgba(0, 0, 0, $opacity)
+
+btn($startColor, $endColor, $borderColor, $shadowColor)
+    background($startColor)
+    bgGradient($startColor, $endColor)
+    border($borderColor)
+    prefix(box-shadow, inset 0px 1px 0px 0px $shadowColor)
+
+    &:hover
+        background($endColor)
+        bgGradient($endColor, $startColor)
+
+center($margin = 0, $width = false, $display = false)
+    margin $margin auto
+
+    if $display != false
+        display $display
+    if $width != false
+        width $width
+
+centerAbsolute($width, $top = false, $bottom = false)
+    position absolute
+    left 0
+    right 0
+    margin-left auto
+    margin-right auto
+    width $width
+
+    if $top != false
+        top $top
+    if $bottom != false
+        bottom $bottom
+
+clearfix()
+    *zoom 1
+    &:after
+        content ''
+        display block
+        clear both
+        height 0
+
+cursor($type = pointer)
+    cursor $type
+
+colorOpacity($a = 0.5, $r = 255, $g = 255, $b = 255)
+    color rgba($r, $g, $b, $a)
+
+font($font, $size = false, $weight = false, $color = false)
+    font-family $font, sans-serif
+
+    if $weight != false
+        font-weight $weight
+    if $color != false
+        color $color
+    if $size != false
+        fontSize($size)
+
+fontWeight($weight)
+    font-weight $weight
+
+fontFace($fontFamily, $fontFile)
+    @font-face
+        font-family $fontFamily
+        src url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.eot')
+        src url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.eot?#iefix') format('embedded-opentype'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.woff2') format('woff2'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.woff') format('woff'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.ttf') format('truetype'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.svg#' + $fontFamily) format('svg');
+        font-weight normal
+        font-style normal
+
+bold()
+    font-weight bold
+
+italic()
+    font-style italic
+
+normal()
+    font-weight normal
+
+light()
+    font-weight light
+
+fontSize($size, $weight = false)
+    font-size $size
+    font-size unit($size / 16, rem)
+
+    if $weight != false
+        font-weight $weight
+
+faIcon($code, $color = $white, $size = 2em, $top = 14px, $right = 0px, $left = 15px, $width = 50px)
+    color $color
+    content '\' + $code
+    font-family FontAwesome
+    font-size $size
+    position absolute
+    left $left
+    right $right
+    top $top
+    width $width
+
+placeholder($color)
+    ::-webkit-input-placeholder
+        color $color
+
+    :-moz-placeholder
+        color $color
+        opacity 1
+
+    ::-moz-placeholder
+        color $color
+        opacity 1
+
+    ::-ms-input-placeholder
+        color $color
+
+position($position, $args...)
+    position $position
+
+    if length($args) == 4
+        if $args[0] != false
+            top $args[0]
+        if $args[1] != false
+            right $args[1]
+        if $args[2] != false
+            bottom $args[2]
+        if $args[3] != false
+            left $args[3]
+    else if length($args) == 3
+        if $args[0] != false
+            top $args[0]
+        if $args[1] != false
+            right $args[1]
+        if $args[2] != false
+            bottom $args[2]
+    else if length($args) == 2
+        if $args[0] != false
+            top $args[0]
+        if $args[1] != false
+            right $args[1]
+    else if length($args) == 1
+        if $args[0] != false
+            top $args[0]
+
+prefix($property, $value)
+    -webkit-{$property} $value
+    -moz-{$property} $value
+    -o-{$property} $value
+    -ms-{$property} $value
+    {$property} $value
+
+resetLink($color)
+    text-decoration none
+    color $color
+
+resetList()
+    list-style none
+    margin 0
+    padding 0
+
+uppercase()
+    text-transform uppercase
+
+noSelect()
+    outline none
+    touch-callout none
+    user-select none
+
+noBorder()
+    border none
+
+noBackground()
+    background none
+
+noDisplay()
+    display none

@@ -1,0 +1,23 @@
+.alert
+    color($colors.common.white)
+    display inline-block
+    position relative
+    margin 0 0 15px
+    padding 15px
+    transition all .3s
+    border-radius 4px
+
+    @media Mobile
+        width 90%
+
+    &.success
+        background($colors.states.success)
+
+    &.info
+        background($colors.states.info)
+
+    &.warning
+        background($colors.states.warning)
+
+    &.danger
+        background($colors.states.danger)

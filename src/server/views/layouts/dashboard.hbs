@@ -1,0 +1,86 @@
+{{#compress}}
+<!DOCTYPE html>
+<html lang="{{ __.Site.language }}">
+    <head>
+        <base href="{{ baseUrl }}" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="content-language" content="{{ __.Site.language }}" />
+        <meta name="description" content="{{ __.Site.description }}" />
+
+        {{#if isMobile}}
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+        {{/if}}
+
+        <title>{{ dashboard.title }}</title>
+
+        <link href="/css/dashboard/{{dashboard.theme}}/style.css" rel="stylesheet" />
+        <link rel="shortcut icon" href="/images/favicon.png">
+        <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
+        <link href="/bower_components/javascript-auto-complete/auto-complete.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="Main">
+            <section class="Sidebar hidden">
+                {{> dashboard/sidebar }}
+            </section>
+
+            <main class="Content">
+                {{> dashboard/header }}
+
+                <section class="container {{ action }}">
+                    {{{ body }}}
+                </section>
+            </main>
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            (() => {
+                // Content
+                window.__ = {{{ content }}};
+                window.isMobile = {{{ isMobile }}};
+                window.relationships = {{{ relationships }}};
+            })();
+        </script>
+        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/bower_components/javascript-auto-complete/auto-complete.min.js"></script>
+        <script src="/js/dashboard/main.js"></script>
+        <script src="/js/tinymce/tinymce.min.js"></script>
+        <script defer>
+            tinymce.init({
+                setup: ed => {
+                    ed.on('keyup', e => {
+                        tinyMceChange();
+                    });
+                    ed.on('change', e => {
+                        tinyMceChange();
+                    });
+                },
+                relative_urls: false,
+                remove_script_host: false,
+                convert_urls: true,
+                selector: '#content',
+                toolbar: 'undo redo styleselect forecolor backcolor bold italic alignleft aligncenter alignright bullist numlist pagebreak outdent indent code link image codesample',
+                height: 700,
+                plugins: "link, image, code, codesample, textcolor, colorpicker, pagebreak",
+                menubar: false,
+                statusbar: false,
+                codesample_languages: [
+                    {text: 'HTML/XML', value: 'markup'},
+                    {text: 'JavaScript', value: 'javascript'},
+                    {text: 'CSS', value: 'css'},
+                    {text: 'PHP', value: 'php'},
+                    {text: 'Ruby', value: 'ruby'},
+                    {text: 'Python', value: 'python'},
+                    {text: 'Java', value: 'java'},
+                    {text: 'C', value: 'c'},
+                    {text: 'C#', value: 'csharp'},
+                    {text: 'C++', value: 'cpp'}
+                ]
+            });
+        </script>
+    </body>
+</html>
+{{/compress}}

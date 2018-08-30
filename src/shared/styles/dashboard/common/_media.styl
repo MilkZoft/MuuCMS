@@ -1,0 +1,163 @@
+.media
+    position(fixed, 0px, false, false, 0%)
+    background-color rgba(#000.3)
+    width 100%
+    height 100%
+    z-index 9999
+    box-sizing border-box
+    padding 30px
+
+    @media Mobile
+        padding 0
+
+.bodyMedia
+    background($colors.dashboard.darkBlue)
+    position(relative, false, false, false, false)
+    width 100%
+    height 100%
+    padding 10px
+    padding-top 100px
+    box-sizing border-box
+
+    +maxBreakpoint(960px)
+        padding-top 150px
+
+
+    h2
+        position(absolute, 10px, false, false, 15px)
+        color($colors.common.white)
+        margin 0
+
+    .closeMedia
+        cursor()
+        fontSize($font.size.xLarge)
+        position(absolute, 10px, 10px)
+        color($colors.common.white)
+
+    .uploadForm
+        fontSize($font.size.small)
+        position(absolute, 50px, false, false, 15px)
+        color($colors.common.white)
+
+    .searchMedia
+        position(absolute, 40px, 35px)
+
+        +maxBreakpoint(960px)
+            left 15px
+            top 90px
+
+        +maxBreakpoint(340px)
+            top 110px
+
+        input
+            border($colors.common.white)
+            fontSize($font.size.medium)
+            padding 10px
+            width 180px
+
+            @media Mobile
+                width 70%
+    .files
+        overflow-y scroll
+        height 100%
+
+
+    .fakeLink
+        cursor()
+
+    .options
+        background($colors.common.black)
+        fontSize($font.size.medium)
+        position(absolute, false, false, 0px, 0px)
+        display none
+        height 50px
+        line-height 50px
+        text-align center
+        width 100%
+
+        a
+            color($colors.common.white)
+            display inline-block
+            text-decoration none
+
+            &.insert
+                cursor()
+                float left
+                width 50%
+
+                &:hover
+                    background($colors.dashboard.media)
+
+            &.download
+                float left
+                width 50%
+
+                &:hover
+                    background($colors.dashboard.media)
+
+    .file
+        border($colors.common.white, 2px, solid)
+        background-position 50% 50%
+        background-repeat no-repeat
+        background-size cover
+        display inline-block
+        float left
+        height 90px
+        margin 4px
+        padding 10px
+        position relative
+        width 21.5%
+
+        &:hover
+            .options
+                display block
+
+        +breakpoint(949px, 1170px)
+            width 29%
+
+        +breakpoint(769px, 949px)
+            width 27%
+
+        +breakpoint(640px, 769px)
+            width 27.5% !important
+
+        +maxBreakpoint(450px)
+            padding 0
+
+        @media Tablet
+            width 28.5%
+
+        @media Mobile
+            width 92.8%
+
+        &:hover
+            border($colors.common.blue, 2px)
+
+        i
+            centerAbsolute(50px)
+            color($colors.common.white)
+            fontSize(40px)
+
+            &.code
+                color($colors.common.gray.six)
+
+            &.pdf
+                color($colors.common.red)
+
+            &.video
+                color($colors.common.green)
+
+            &.word
+                color($colors.common.blue)
+
+            &.zip
+                color($colors.common.yellow)
+
+        p
+            fontSize($font.size.smaller)
+            color($colors.common.white)
+            margin-top 50px
+            text-align center
+
+            @media Mobile
+                fontSize($font.size.xSmall)

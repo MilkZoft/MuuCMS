@@ -1,0 +1,138 @@
+@import '../../../styles/_dependencies'
+
+.footer
+    background($colors.common.gray.two)
+    color($colors.common.gray.B)
+
+    margin-top 100px
+    padding 50px
+    box-shadow 0 .5px txtGray inset
+
+    a,
+    p,
+    span
+        fontSize(14px)
+
+    h3
+        color($colors.common.gray.B)
+        fontSize(18px)
+
+        margin-bottom 10px
+
+    a
+        color($colors.common.gray.eight)
+
+        &:hover
+            color($colors.common.white)
+
+        &.backToTop
+            fontSize($font.size.large)
+            position(fixed, false, 10px, 20px)
+            background($colors.common.black)
+            color($colors.common.white)
+            border-radius 25px
+            box-sizing border-box
+            cursor pointer
+            display block
+            height 45px
+            opacity 0
+            padding 10px
+            text-align center
+            transition color 300ms, background-color 300ms, opacity 300ms
+            width 45px
+            z-index 9999
+
+            i
+                position(absolute, 12px, false, false, 17px)
+
+            &.show
+                opacity 1
+
+    img
+        filter grayscale(100%)
+        transition alltransition
+        width 65px
+
+        &:hover
+            filter grayscale(0%)
+
+    .wrapper
+        display flex
+        justify-content space-between
+        margin 0 auto
+        max-width 1280px
+
+        @media Mobile
+            justify-content center
+
+        .menuLeft
+            @media Mobile
+                display none
+
+        .menuCenter
+            margin-right auto
+            margin-left 50px
+
+            @media Mobile
+                display none
+
+        ul
+            resetList()
+
+            li
+                padding 4px 0
+
+        .infoRight
+            text-align end
+
+            @media Mobile
+                align-items center
+                text-align center
+
+            a
+                margin-bottom 10px
+
+            p
+                width 400px
+
+                @media Mobile
+                    width 90%
+
+            i
+                color($colors.common.gray.nine)
+                fontSize(24px)
+
+                padding 0 10px
+                margin-left 5px
+                transition alltransition
+
+            ul
+                resetList()
+
+                display flex
+                justify-content flex-end
+                margin 15px 0
+
+                @media Mobile
+                    justify-content center
+
+                li
+                    transition alltransition
+
+                    &:first-child
+                        &:hover
+                            i
+                                color($colors.social.twitter)
+
+                    &:nth-child(2)
+                        &:hover
+                            i
+                                color($colors.social.facebook)
+
+                    &:last-child
+                        &:hover
+                            i
+                                color #cc181e
+
+            .copyRight
+                fontSize(14px)

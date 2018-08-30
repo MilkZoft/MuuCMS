@@ -1,0 +1,192 @@
+table
+    border-collapse collapse
+    border-spacing 0
+    margin-top 25px
+
+.noData
+    background($colors.common.black)
+    color($colors.common.white)
+    font($font.family.openSans, $font.size.regular)
+    uppercase()
+    margin-top 70px
+    padding 5px
+    text-align center
+    width 165px
+
+.actions
+    margin-top 10px
+    width 305px
+
+    @media Mobile
+        margin 0 auto
+        margin-top 10px
+
+.table
+    background($colors.common.white)
+    width 95%
+
+    @media Tablet
+        width 98%
+
+    @media Mobile
+        width 99%
+
+    caption
+        color($colors.common.gray.five)
+        fontSize(24px)
+        background($colors.common.white)
+        border: 1px solid $colors.common.gray.E
+        border-bottom 0
+        border-radius 4px 4px 0 0
+        padding 25px 30px
+        position relative
+        text-align left
+        text-transform capitalize
+
+        .caption
+            float left
+
+        .total
+            float right
+
+    thead
+        background($colors.common.gray.F)
+
+        th
+            fontSize($font.size.regular, $font.weight.bold)
+            padding 20px 8px
+            text-transform none
+
+            &.darkMode
+                color($colors.common.gray.C)
+
+            input[type="checkbox"]
+                transform scale(1.2)
+
+            @media Tablet
+                fontSize($font.size.small, $font.weight.bold)
+
+            @media Mobile
+                fontSize($font.size.smaller, $font.weight.bold)
+
+            @media iPhone5
+                fontSize($font.size.xSmall, $font.weight.bold)
+
+        th[data-column="Dashboard.table.id"]
+        th[data-column="Dashboard.table.author"]
+        th[data-column="Dashboard.table.value"]
+        th[data-column="Dashboard.table.application"]
+        th[data-column="Dashboard.table.theme"]
+            @media Tablet
+                display none
+
+    tbody
+        tr
+            border-bottom 1px solid #eee;
+
+            &:hover
+                background($colors.common.gray.F)
+
+            td
+                fontSize($font.size.regular)
+                height 50px
+                max-width 220px
+                overflow hidden
+                padding 20px 20px
+                text-overflow ellipsis
+                white-space nowrap
+
+                @media Tablet
+                    max-width 190px
+
+                input[type="checkbox"]
+                    transform scale(1.2)
+
+                a
+                    color($colors.common.gray.three)
+
+                @media Tablet
+                    fontSize($font.size.smaller)
+
+                @media Mobile
+                    fontSize($font.size.smaller)
+                    padding 9px
+
+                @media iPhone5
+                    fontSize($font.size.xSmall, $font.weight.bold)
+                    padding 6px
+
+                @media iPhone5Landscape
+                    fontSize($font.size.xSmall, $font.weight.bold)
+                    padding 10px
+
+            td[data-column="Dashboard.table.id"]
+            td[data-column="Dashboard.table.author"]
+            td[data-column="Dashboard.table.value"]
+            td[data-column="Dashboard.table.application"]
+            td[data-column="Dashboard.table.theme"]
+                @media Tablet
+                    display none
+
+            td[data-column="Dashboard.table.user"]
+            td[data-column="Dashboard.table.createdAt"]
+                text-align center
+
+    .center
+        text-align center
+
+    .actions
+        fontSize($font.size.large)
+        width 50px
+
+        .edit
+            &:hover
+                color($colors.common.blue)
+
+        .delete
+            &:hover
+                color($colors.states.danger)
+
+        .remove
+            &:hover
+                color($colors.common.red)
+
+        .restore
+            &:hover
+                color($colors.common.green)
+
+    /* Custom colors for rows */
+    .success
+        border-left 5px solid green
+
+        @media Mobile
+            border-left 2px solid green
+
+    .info
+        border-left 5px solid blue
+
+        @media Mobile
+            border-left 2px solid blue
+
+    .danger
+        color($colors.common.red)
+        border-left 5px solid red
+
+        @media Mobile
+            border-left 2px solid red
+
+    .warning
+        border-left 5px solid orange
+
+        @media Mobile
+            border-left 2px solid orange
+
+    /* Table colors */
+    &.grey
+        border($colors.common.gray.D)
+        color($colors.common.gray.three)
+
+        thead
+            th
+                borderBottom($colors.common.gray.D)
+                color($colors.common.gray.seven)

@@ -1,0 +1,48 @@
+@import '../../styles/_dependencies'
+
+.pagination
+    ul
+        resetList()
+        display flex
+        justify-content center
+        margin 500 auto
+        margin-top 90px
+        margin-bottom 50px
+        width 100%
+
+        @media Mobile
+            fontSize(11px)
+
+        li
+            margin 5px
+
+            @media Mobile
+                margin 2px
+
+                &:nth-child(7),
+                &:nth-child(8),
+                &:nth-child(9),
+                &:nth-child(10),
+                &:nth-child(11)
+                    display none
+
+                .active
+                    display inline
+
+        a
+            color($colors.common.gray.seven)
+
+            padding 15px 20px
+            border-radius 5px
+
+            &:hover
+                background(darken($colors.common.gray.nine, 5%))
+                color($colors.common.white)
+
+        .active
+            background($colors.common.blue)
+            color($colors.common.white)
+
+            &:hover
+                background($colors.common.blue)
+                color($colors.common.white)
