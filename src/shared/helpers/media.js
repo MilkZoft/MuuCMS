@@ -10,5 +10,5 @@ import { glob } from '../utils/files';
  * @returns {object} Media Files
  */
 export function getMedia() {
-  return glob(path.join(__dirname, '../../../public/media'));
+  return glob(path.join(__dirname, '..', '..', '..', 'public', 'media'));
 }

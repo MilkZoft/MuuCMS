@@ -26,7 +26,6 @@ public/**/*.bundle.js
 public/**/*.bundle.js.gz
 public/app/report.html
 public/bower_components
-public/media
 package-lock.json
 .DS_Store
 dump.rdb
