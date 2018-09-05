@@ -45,6 +45,9 @@ CREATE TABLE `blog` (
   `state` varchar(15) NOT NULL DEFAULT 'Active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `blog` (`id`, `title`, `slug`, `category`, `categorySlug`, `content`, `codes`, `author`, `day`, `month`, `year`, `language`, `activeComments`, `state`) VALUES
+(1, 'Welcome to MuuCMS', 'welcome-to-muucms', 'blog', '', '<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src=\"http://localhost:3000/media/Codejobs-mVcQF.png\" alt=\"Codejobs-mVcQF.png\" width=\"603\" height=\"339\" /></p>\r\n<p>Hello, his is your first post...</p>', '', 'admin', '04', '09', '2018', 'en', 1, 'Active');
+
 -- --------------------------------------------------------
 
 --
