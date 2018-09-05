@@ -2,9 +2,6 @@
 import React from 'react';
 import { bool } from 'prop-types';
 
-// Utils
-import { loadImage } from '@utils/frontend';
-
 // Components
 import Link from '@ui/Link';
 
@@ -18,8 +15,7 @@ const Logo = props => {
     <div className={`${styles.logo} ${center && styles.center} ${isotype && styles.isotype}`}>
       <Link to="/" title="Codejobs" refresh={refresh} external>
         <img
-          src={loadImage('logo.png')}
-          srcSet={`${loadImage('logo.png')} 1x, ${loadImage('logo_2x.png')} 2x`}
+          src="/images/logo.png"
           alt="Codejobs"
         />
 

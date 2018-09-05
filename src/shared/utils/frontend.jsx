@@ -190,16 +190,6 @@ export function isUser(connectedUser, userPrivilege) {
 }
 
 /**
- * Loads an image depending on the theme path
- *
- * @param {string} imagePath Path of the image
- * @returns {string} Image path with theme
- */
-export function loadImage(imagePath) {
-  return `/frontend/images/${imagePath}`;
-}
-
-/**
  * Redirects to a specific url
  *
  * @param {string} url URL
