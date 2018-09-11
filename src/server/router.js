@@ -168,7 +168,8 @@ export default (app) => {
   app.disable('x-powered-by');
 
   if ($isLocal()) {
-    app.use((err, req, res) => {
+    // eslint-disable-next-line no-unused-vars
+    app.use((err, req, res, next) => {
       console.log(err); // eslint-disable-line no-console
 
       res.status(err.status || 500);
@@ -186,7 +187,8 @@ export default (app) => {
     return next(err);
   });
 
-  app.use((err, req, res) => {
+  // eslint-disable-next-line no-unused-vars
+  app.use((err, req, res, next) => {
     res.status(err.status || 500);
 
     res.render('error', {
