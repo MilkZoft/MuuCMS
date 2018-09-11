@@ -18,7 +18,7 @@ const utils = {
 };
 
 export default (req, res, next) => {
-  const currentApp = getCurrentApp(req.originalUrl, true);
+  let currentApp = getCurrentApp(req.originalUrl, true);
   const app = $app().allowed[currentApp];
 
   if (!app || !app.backend) {
@@ -28,37 +28,43 @@ export default (req, res, next) => {
   const { schema } = app;
 
   // * Global vars
-  const table = currentApp;
+  let table = currentApp;
   const { fields } = schema;
-  const order = 'id desc';
+  let order = 'id desc';
   const searchBy = fields.split(', ');
   const filename = 'dashboard.model.js';
 
   // * Required fields
   res.content('Dashboard.forms.fields.error', true);
 
+  // * Hidden and required Elements
+  const hiddenElements = {};
   const requiredFields = {};
 
-  if (schema.required) {
-    schema.required.split(', ').forEach(field => {
-      requiredFields[field] = res.content(field);
-    });
-  }
+  const getRequiredFields = schema => {
+    if (schema.required) {
+      schema.required.split(', ').forEach(field => {
+        requiredFields[field] = res.content(field);
+      });
+    }
+  };
 
-  // * Hidden Elements
-  const hiddenElements = {};
+  const getHiddenElements = schema => {
+    if (schema.hidden) {
+      schema.hidden.split(', ').forEach(field => {
+        const [hiddenField, method] = field.split(':');
 
-  if (schema.hidden) {
-    schema.hidden.split(', ').forEach(field => {
-      const [hiddenField, method] = field.split(':');
+        hiddenElements[hiddenField] = '';
 
-      hiddenElements[hiddenField] = '';
+        if (method) {
+          hiddenElements[hiddenField] = utils[method]();
+        }
+      });
+    }
+  };
 
-      if (method) {
-        hiddenElements[hiddenField] = utils[method]();
-      }
-    });
-  }
+  getRequiredFields(schema);
+  getHiddenElements(schema);
 
   // Response data for table schema
   const resData = {
@@ -86,7 +92,13 @@ export default (req, res, next) => {
     };
   }
 
-  function dashboard() {
+  function dashboard(application) {
+    if (application) {
+      const { schema } = $app().allowed[currentApp];
+      currentApp = application;
+      getRequiredFields(schema);
+    }
+
     function count(cb) {
       Model.countAllRowsFrom({ table }, total => cb(total));
     }
@@ -112,7 +124,7 @@ export default (req, res, next) => {
         order,
         limit,
         debug: {
-          filename,
+          filename: __filename,
           method: 'getRows'
         }
       };
@@ -129,7 +141,7 @@ export default (req, res, next) => {
         table,
         id,
         debug: {
-          filename,
+          filename: __filename,
           method: 'getRow'
         }
       };
@@ -152,7 +164,7 @@ export default (req, res, next) => {
     }
 
     function removeRow(id, cb) {
-      Model.removeRow(table, id, () => cb());
+      Model.removeRow(table, id, () => cb(true));
     }
 
     function restoreAction(rows, cb) {
@@ -168,17 +180,26 @@ export default (req, res, next) => {
       let save = true;
       const errorMessages = {};
 
-      forEach(fields, field => {
-        if (requiredFields[field] && data[field] === '') {
-          save = false;
-          errorMessages[field] = requiredFields[field];
-        }
-      });
+      table = application || table;
+
+      const enoughFields = keys(requiredFields).filter(x => !fields.includes(x));
+
+      if (enoughFields.length === 0) {
+        forEach(fields, field => {
+          if (requiredFields[field] && data[field] === '') {
+            save = false;
+            errorMessages[field] = requiredFields[field];
+          }
+        });
+      } else {
+        save = false;
+        errorMessages.error = `Missing fields: ${enoughFields.toString()}`;
+      }
 
       if (save) {
         Model.existsRow(table, validateIfExists(data), exists => {
           if (!exists) {
-            return Model.insertRow(table, data, cb, (result, cb) => cb(result));
+            return Model.insertRow(table, data, cb, (result, cb) => cb(result, {}));
           } else {
             return cb(false, 'exists');
           }
@@ -208,11 +229,17 @@ export default (req, res, next) => {
     }
 
     function updateRow(data, cb) {
+      const { id = res.currentId } = data;
+
+      if (data.id) {
+        delete data.id;
+      }
+
       const fields = keys(data);
       let edit = true;
       const errorMessages = {};
       const validateIfExists = {
-        id: res.currentId
+        id
       };
 
       // Removing year, month and day for blog
@@ -238,7 +265,7 @@ export default (req, res, next) => {
             return Model.updateRow(
               table,
               data,
-              res.currentId,
+              id,
               cb,
               (result, cb) => cb(result)
             );
@@ -268,8 +295,91 @@ export default (req, res, next) => {
     };
   }
 
+  function cms(application) {
+    function count(data, cb) {
+      Model.countAllRowsFrom({ table, ...data }, total => cb(total));
+    }
+
+    function get(requestData, cb) {
+      const {
+        params: {
+          order: orderDirection = 'desc',
+          orderBy = false,
+          page,
+          total = 0,
+          all = false,
+          fields = '*'
+        },
+        query
+      } = requestData;
+
+      const limit = !all ? getPaginationLimit(page, total) : '';
+
+      if (orderBy) {
+        order = `${orderBy} ${orderDirection}`;
+      }
+
+      const data = {
+        table: application,
+        fields,
+        order,
+        limit,
+        query,
+        debug: {
+          filename: __filename,
+          method: 'get'
+        }
+      };
+
+      Model.findByQuery(data, result => cb(result));
+    }
+
+    function search(requestData, cb) {
+      const {
+        searchBy,
+        searchTerm,
+        fields = '*',
+        params: {
+          page,
+          total = 0,
+          all = false,
+          order: orderDirection = 'desc',
+          orderBy = false
+        }
+      } = requestData;
+
+      const limit = !all ? getPaginationLimit(page, total) : '';
+
+      if (orderBy) {
+        order = `${orderBy} ${orderDirection}`;
+      }
+
+      const data = {
+        table: application,
+        fields,
+        searchBy: [searchBy],
+        searchTerm,
+        order,
+        limit,
+        debug: {
+          filename,
+          method: 'search'
+        }
+      };
+
+      Model.search(data, result => cb(result));
+    }
+
+    return {
+      count,
+      get,
+      search
+    };
+  }
+
   // Methods
   res.dashboardModel = {
+    cms,
     dashboard
   };
 

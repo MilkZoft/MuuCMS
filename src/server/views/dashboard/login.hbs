@@ -1,0 +1,37 @@
+<div class="login">
+  <div class="wrapper">
+    <div class="logo center">
+      <a href="/" title="Codejobs">
+        <img src="/images/logo.png" alt="Codejobs">
+        <span class="brand"><span class="code">CODE</span><span>JOBS</span></span>
+      </a>
+    </div>
+
+    <form action="{{ baseUrl }}/dashboard/login" method="post" class="form">
+      <input
+        type="text"
+        class="username"
+        name="username"
+        placeholder={{ __.Frontend.Users.Username.placeholder }}
+        contentKey="Frontend.Users.Username.placeholder"
+      />
+
+      <input
+        type="password"
+        class="password"
+        name="password"
+        placeholder={{ __.Frontend.Users.Password.placeholder }}
+        contentKey="Frontend.Users.Password.placeholder"
+      />
+
+      <input
+        type="submit"
+        class="btn dark login"
+        name="login"
+        value={{ __.Frontend.Users.Buttons.login }}
+        data-content-key="Frontend.Users.Buttons.login"
+      />
+    </form>
+
+    <div class="copyRight">2018 © Codejobs</div>
+</div>

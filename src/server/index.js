@@ -1,4 +1,5 @@
 // Dependencies
+import 'babel-polyfill';
 import bodyParser from 'body-parser';
 import connectBusboy from 'connect-busboy';
 import cookieParser from 'cookie-parser';
@@ -91,6 +92,7 @@ if (!$isLocal()) {
 }
 
 // Public static
+app.use('/node_modules', express.static(path.join(__dirname, '../../node_modules')));
 app.use(express.static(path.join(__dirname, '../../public')));
 
 // Device Detection

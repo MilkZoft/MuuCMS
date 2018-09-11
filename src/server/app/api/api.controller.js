@@ -1,59 +1,177 @@
 // Dependencies
 import express from 'express';
 
+// Configuration
+import { $app } from '@configuration';
+
 // Utils
-import { isFunction, isDefined } from '@utils/is';
+import { isFunction } from '@utils/is';
 import { camelCase, sanitize } from '@utils/string';
 
 // Express Router
 const Router = express.Router();
 
-// GET Method
-Router.get('/blog/:endpoint*?', (req, res) => {
-  const endpointMethod = camelCase(req.params.endpoint);
-  const data = sanitize(req.query);
+// Allowed Apps
+const allowedApps = $app().allowed;
 
-  if (isFunction(res.blogAPI[endpointMethod])) {
-    return res.blogAPI[endpointMethod](data, (cache, response, rows, format = 'json') => {
-      if (response && format === 'json') {
+// PUT Method
+Router.put('/:application/:id', (req, res) => {
+  const { application, id } = req.params;
+  const allowedApp = allowedApps[application];
+
+  if (allowedApp && !allowedApp.private && allowedApp.actions.update) {
+    const data = sanitize(req.body);
+
+    const apiParams = {
+      application,
+      body: { id, ...data }
+    };
+
+    res.dashboardAPI.put(apiParams, (response, error) => {
+      if (response) {
         res.json({
           information: {
-            cache,
-            total: response.length,
-            rows,
-            params: data
+            affectedRows: 1,
+            apiParams
           },
-          response
+          response: {
+            updated: true
+          }
         });
-      } else if (response && format === 'xml') {
-        res.set('Content-Type', 'text/xml');
-        res.send(response);
       } else {
         res.json({
-          error: true
+          error: true,
+          errorMessage: error
         });
       }
     });
+  } else {
+    res.json({
+      error: true,
+      message: 'Unauthorized'
+    });
   }
+});
 
-  return res.json({
-    error: true
+// DELETE Method
+Router.delete('/:application/:id', (req, res) => {
+  const { application, id } = req.params;
+  const allowedApp = allowedApps[application];
+
+  if (allowedApp && !allowedApp.private && allowedApp.actions.delete) {
+    const apiParams = {
+      application,
+      id
+    };
+
+    res.dashboardAPI.remove(apiParams, (response, error) => {
+      if (response) {
+        res.json({
+          information: {
+            affectedRows: 1,
+            apiParams
+          },
+          response: {
+            deleted: true
+          }
+        });
+      } else {
+        res.json({
+          error: true,
+          errorMessage: error
+        });
+      }
+    });
+  } else {
+    res.json({
+      error: true,
+      message: 'Unauthorized'
+    });
+  }
+});
+
+Router.delete('/:application/', (req, res) => {
+  res.send({
+    error: 'You must send the id, DELETE /:application/:id'
   });
 });
 
-Router.get('/pages/:endpoint*?', (req, res) => {
-  const endpointMethod = camelCase(req.params.endpoint);
-  const data = sanitize(req.query);
+// POST Method
+Router.post('/:application', (req, res) => {
+  const { application } = req.params;
+  const allowedApp = allowedApps[application];
 
-  if (isFunction(res.pagesAPI[endpointMethod])) {
-    return res.pagesAPI[endpointMethod](data, (cache, response, rows, format = 'json') => {
-      if (response && format === 'json') {
+  if (allowedApp && !allowedApp.private && allowedApp.actions.create) {
+    const data = sanitize(req.body);
+
+    const apiParams = {
+      application,
+      body: data
+    };
+
+    res.dashboardAPI.post(apiParams, (response, error) => {
+      if (response) {
         res.json({
           information: {
-            cache,
+            affectedRows: 1,
+            apiParams
+          },
+          response: {
+            inserted: true
+          }
+        });
+      } else {
+        res.json({
+          error: true,
+          errorMessage: error
+        });
+      }
+    });
+  } else {
+    res.json({
+      error: true,
+      message: 'Unauthorized'
+    });
+  }
+});
+
+// GET Method
+Router.get('/:application', (req, res) => {
+  const { application } = req.params;
+  const allowedApp = allowedApps[application];
+  const {
+    action = 'get',
+    appParams,
+    query,
+    all = false,
+    order,
+    orderBy,
+    searchBy,
+    searchTerm,
+    fields
+  } = sanitize(req.query);
+
+  const apiParams = {
+    application,
+    action,
+    appParams,
+    query,
+    all,
+    order,
+    orderBy,
+    searchBy,
+    searchTerm,
+    fields
+  };
+
+  if (allowedApp && !allowedApp.private && allowedApp.actions.read) {
+    res.dashboardAPI.get(apiParams, (response, rows) => {
+      if (response) {
+        res.json({
+          information: {
             total: response.length,
             rows,
-            params: data
+            apiParams
           },
           response
         });
@@ -63,11 +181,12 @@ Router.get('/pages/:endpoint*?', (req, res) => {
         });
       }
     });
+  } else {
+    res.json({
+      error: true,
+      message: 'Unauthorized'
+    });
   }
-
-  return res.json({
-    error: true
-  });
 });
 
 Router.get('/users/:endpoint*?', (req, res) => {
@@ -114,64 +233,5 @@ Router.post('/users/:endpoint*?', (req, res) => {
     });
   }
 });
-
-Router.get('/comment', async (req, res) => {
-  const comments = await res.commentAPI.fetchComments();
-
-  if (comments.error) {
-    res.send({ data: [], error: comments.error });
-  } else {
-    res.send({ data: comments });
-  }
-});
-
-Router.get('/comment/delete', async (req, res) => {
-  const { query: { commentId, postId } } = req;
-  const connectedUser = res.session('user');
-
-  if (connectedUser.privilege !== 'god') {
-    res.send({ error: 'You don\'t have permission to perform this action' });
-  }
-
-  const result = res.commentAPI.deleteComment(commentId, postId);
-
-  res.send(result);
-});
-
-Router.post('/comment', async (req, res) => {
-  // validate user session
-  if (isDefined(res.session('user')) && isDefined(res.session('oauth'))) {
-    const commentResponse = await res.commentAPI.saveComment();
-    // check the response
-    if (commentResponse.error) {
-      res.status(400).send(commentResponse);
-    } else {
-      res.send({ data: commentResponse });
-    }
-  } else {
-    res.status(400).send({ inserted: false });
-  }
-});
-
-Router.get('/forgotPassword', async (req, res) => {
-  const result = await res.forgotPasswordAPI.checkEmail();
-  if (result.error) {
-    res.send({ response: { isValid: false } });
-  } else {
-    res.send(result);
-  }
-});
-
-Router.post('/forgotPassword', async (req, res) => {
-  const result = await res.forgotPasswordAPI.resetPassword();
-  if (result.error) {
-    res.send({ response: { inserted: false }, error: result.error });
-  } else {
-    res.send(result);
-  }
-});
-
-
-Router.post('/contact', (req, res) => res.contactAPI.saveContact(response => res.send(response)));
 
 export default Router;

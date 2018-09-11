@@ -1,0 +1,142 @@
+.login
+    margin 0 auto
+
+    .wrapper
+        font($font.family.openSans, $font.size.medium)
+        background($colors.common.white)
+        color($colors.common.gray.five)
+        border-radius 10px
+        margin 0 auto
+        margin-top 200px
+        overflow hidden
+        padding 20px
+        position relative
+        width 500px
+
+        @media Mobile
+            margin-top 0px
+            width 320px
+
+        .logo
+            align-self center
+            width 230px
+
+            &.isotype
+                width auto
+
+            &.center
+                margin 0 auto
+
+            @media Mobile
+                padding 20px 0px 20px 0px
+                width 197px
+
+            a
+                color($colors.common.gray.six)
+                display block
+                z-index 200
+
+                img
+                    display inline-block
+                    margin 0
+                    margin-right 5px
+                    vertical-align middle
+                    width 65px
+
+                .brand
+                    font($font.family.openSans, $font.size.xLarge, $font.weight.bold)
+                    vertical-align middle
+
+                    .code
+                        color($colors.main.first)
+
+
+        .success
+            text-align center
+
+        .form
+              position(relative)
+              height 160px
+              margin 0 auto
+              margin-top 20px
+              width 90%
+
+              placeholder(white)
+
+              .username,
+              .password,
+              .email
+                  font($font.family.openSans, $font.size.medium)
+                  background($colors.common.gray.two)
+                  border($colors.common.gray.D)
+                  color white
+                  border-radius 5px
+                  line-height 1.4
+                  margin-bottom 10px
+                  padding 10px 0px 10px 0px
+                  text-indent 10px
+                  width 100%
+
+              .required
+                  background($colors.specific.mandy)
+                  border()
+
+              .login
+                  float left
+                  margin-right 10px
+
+                  @media Mobile
+                      margin-right 5px
+
+              .register
+                  float left
+
+              .forgotPassword
+                  resetLink($colors.common.gray.five)
+
+                  display none // Enable once Forgot Password is done
+                  float right
+                  margin-top 7px
+
+                  &:hover
+                      color($colors.common.pink)
+
+                  @media Mobile
+                      fontSize($font.size.smaller)
+                      float none
+
+          .socialLogin
+              .wrapper
+                  fontSize($font.size.large, $font.weight.bold)
+                  margin 0 auto
+                  padding 20px 0 20px 0px
+                  width 90%
+
+                  @media Mobile
+                      fontSize($font.size.regular)
+
+                  .icons
+                      fontSize($font.size.xLarge)
+                      float right
+
+                      @media Mobile
+                          margin-top -6px
+
+                      .facebook
+                          color($colors.social.facebook)
+                          padding-right 10px
+
+                      .twitter
+                          color($colors.social.twitter)
+
+      .copyRight
+          font($font.family.openSans, $font.size.medium)
+          color($colors.common.gray.seven)
+          margin-top 20px
+          text-align center
+
+          @media Mobile
+              fontSize($font.size.small)
+
+          a
+              color($colors.common.pink)

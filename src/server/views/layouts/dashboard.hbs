@@ -16,8 +16,7 @@
 
         <link href="/css/dashboard/{{dashboard.theme}}/style.css" rel="stylesheet" />
         <link rel="shortcut icon" href="/images/favicon.png">
-        <link href="//cdn.quilljs.com/1.0.0/quill.snow.css" rel="stylesheet">
-        <link href="/bower_components/javascript-auto-complete/auto-complete.css" rel="stylesheet">
+        <link href="/js/auto-complete/auto-complete.css" rel="stylesheet">
     </head>
 
     <body>
@@ -37,17 +36,15 @@
 
         <!-- Scripts -->
         <script>
-            (() => {
-                // Content
-                window.__ = {{{ content }}};
-                window.isMobile = {{{ isMobile }}};
-                window.relationships = {{{ relationships }}};
-            })();
+            // Content
+            window.__ = {{{ content }}};
+            window.isMobile = {{{ isMobile }}};
+            window.relationships = {{{ relationships }}};
         </script>
-        <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="/bower_components/javascript-auto-complete/auto-complete.min.js"></script>
+        <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="/node_modules/tinymce/tinymce.min.js"></script>
+        <script src="/js/auto-complete/auto-complete.min.js"></script>
         <script src="/js/dashboard/main.js"></script>
-        <script src="/js/tinymce/tinymce.min.js"></script>
         <script defer>
             tinymce.init({
                 setup: ed => {

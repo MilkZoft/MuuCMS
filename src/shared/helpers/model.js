@@ -436,6 +436,7 @@ export function restoreRows(table, state, rows, callback) {
  */
 export function search(data, callback) {
   const sql = Db.getSearchQuery(data);
+
   return query(sql, callback, (result, fn) => fn(result));
 }
 

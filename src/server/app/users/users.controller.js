@@ -46,7 +46,9 @@ Router.get('/logout', (req, res) => {
 /**
  * Renders login view
  */
-Router.get('/login', (req, res) => res.render('users/login'));
+Router.get('/login', (req, res) => {
+  res.send('login');
+});
 
 /**
  * Renders register view

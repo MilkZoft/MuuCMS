@@ -3,6 +3,12 @@
     "default": "blog",
     "allowed": {
       "blog": {
+        "actions": {
+          "create": false,
+          "read": true,
+          "update": false,
+          "delete": false
+        },
         "frontend": true,
         "backend": true,
         "dashboard": {
@@ -28,6 +34,12 @@
         }
       },
       "categories": {
+        "actions": {
+          "create": true,
+          "read": true,
+          "update": true,
+          "delete": true
+        },
         "frontend": false,
         "backend": true,
         "dashboard": {
@@ -41,6 +53,12 @@
         }
       },
       "configuration": {
+        "actions": {
+          "create": false,
+          "read": true,
+          "update": false,
+          "delete": false
+        },
         "frontend": false,
         "backend": true,
         "dashboard": {
@@ -53,6 +71,12 @@
         }
       },
       "contact": {
+        "actions": {
+          "create": false,
+          "read": true,
+          "update": false,
+          "delete": false
+        },
         "frontend": true,
         "backend": true,
         "dashboard": {
@@ -65,6 +89,12 @@
         }
       },
       "forgotPassword": {
+        "actions": {
+          "create": false,
+          "read": false,
+          "update": false,
+          "delete": false
+        },
         "frontend": true,
         "backend": false,
         "schema": {
@@ -73,6 +103,12 @@
         }
       },
       "content": {
+        "actions": {
+          "create": true,
+          "read": true,
+          "update": true,
+          "delete": false
+        },
         "frontend": false,
         "backend": true,
         "dashboard": {
@@ -86,10 +122,22 @@
         }
       },
       "login": {
+        "actions": {
+          "create": false,
+          "read": false,
+          "update": false,
+          "delete": false
+        },
         "frontend": true,
         "backend": false
       },
       "pages": {
+        "actions": {
+          "create": true,
+          "read": true,
+          "update": true,
+          "delete": true
+        },
         "frontend": true,
         "backend": true,
         "dashboard": {
@@ -102,14 +150,17 @@
         }
       },
       "profile": {
+        "private": true,
         "frontend": true,
         "backend": false
       },
       "register": {
+        "private": true,
         "frontend": true,
         "backend": false
       },
       "users": {
+        "private": true,
         "frontend": true,
         "backend": true,
         "dashboard": {

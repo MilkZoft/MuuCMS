@@ -25,7 +25,6 @@ public/css/style.css.gz
 public/**/*.bundle.js
 public/**/*.bundle.js.gz
 public/app/report.html
-public/bower_components
 package-lock.json
 .DS_Store
 dump.rdb
@@ -36,3 +35,5 @@ coverage
 
 v8-compile-cache-0
 jest_0
+
+.DS_Store

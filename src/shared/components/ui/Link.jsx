@@ -32,7 +32,7 @@ const Link = props => {
 };
 
 Link.propTypes = {
-  to: string.isRequired,
+  to: string,
   refresh: bool,
   external: bool
 };

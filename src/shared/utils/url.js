@@ -32,8 +32,11 @@ export function getParamsFromUrl(url, index = false) {
   }
 
   if (isString(url)) {
-    const params = url.split('/');
+    if (url.indexOf('?') > -1) {
+      url = url.substr(0, url.indexOf('?'));
+    }
 
+    const params = url.split('/');
     params.shift();
 
     if (params[params.length - 1] === '') {

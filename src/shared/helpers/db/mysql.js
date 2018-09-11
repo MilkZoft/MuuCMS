@@ -355,6 +355,8 @@ export function getRestoreRowsQuery(table, state, rows) {
 export function getSearchQuery(data) {
   const getFields = () => data.fields || '*';
   const getTable = () => data.table;
+  const getOrder = () => data.order && `ORDER BY ${data.order}` || '';
+  const getLimit = () => data.limit && `LIMIT ${data.limit}` || '';
   const count = data.searchBy.length - 1;
   let where = 'WHERE (';
   let i = 0;
@@ -381,7 +383,7 @@ export function getSearchQuery(data) {
 
   where += ')';
 
-  const query = `SELECT ${getFields()} FROM ${getTable()} ${where} ORDER BY id DESC LIMIT 10`;
+  const query = `SELECT ${getFields()} FROM ${getTable()} ${where} ${getOrder()} ${getLimit()}`;
 
   debug('mysql.js', 'getSearchQuery', filename(), method(), data, query);
 
