@@ -149,12 +149,6 @@ export default (app) => {
   });
 
 
-  // Slack redirection
-  app.get('/slack', (req, res) => {
-    const c = 'enQtMjU0MzY0MjEzMzMxLWFjMTkxZDZlY2EyMzZmNmY2Y2U5MDQ1NDNkMmE2ZTFmZjljZmFkMDYyOTZlMmI1YTU3MjM0YzMwOTM4NzI5NzQ';
-    res.redirect(`https://codejobs.slack.com/join/shared_invite/${c}`);
-  });
-
   // Controllers dispatch
   app.get('/', (req, res) => res.send('a'));
   app.use('/api', apiController);
