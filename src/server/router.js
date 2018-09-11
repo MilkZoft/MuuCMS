@@ -148,7 +148,6 @@ export default (app) => {
     return next();
   });
 
-
   // Controllers dispatch
   app.get('/', (req, res) => res.send('a'));
   app.use('/api', apiController);
