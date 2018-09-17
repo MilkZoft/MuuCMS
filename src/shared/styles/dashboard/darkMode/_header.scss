@@ -1,0 +1,13 @@
+.navbar {
+    @include bg($codGray);
+    color: $emperor;
+    border-bottom: none;
+
+    i.theme {
+        color: $white;
+    }
+
+    h2 {
+        color: $white;
+    }
+}

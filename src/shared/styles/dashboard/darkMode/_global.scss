@@ -1,0 +1,10 @@
+body {
+    @include bg($black);
+
+    input,
+    textarea {
+        @include bg($black);
+        @include border(rgba(white,.3), 1px, solid);
+        color: $white;
+    }
+}

@@ -1,0 +1,86 @@
+.Content {
+    .container {
+        &.readAction {
+            .readAction {
+                .searching {
+                    color: $white;
+                }
+            }
+        }
+
+        .Create,
+        .Update {
+            .inputBlock {
+                label {
+                    color: $frenchGray;
+                }
+
+                a {
+                    color: $white;
+                }
+            }
+
+            .editor {
+                @include border(rgba($white, .3), 1px, solid);
+                color: $white;
+            }
+
+            .select {
+                @include bg($black);
+                @include border(rgba($white, .3), 1px, solid);
+                color: $frenchGray;
+            }
+        }
+
+        .Home {
+            .wrap {
+                @include bg(transparent);
+                @include border(rgba($white, .3), 1px, solid);
+
+                li {
+                    border-bottom: 1px solid rgba($white, .3);
+
+                    a {
+                        color: $frenchGray;
+                    }
+                }
+            }
+
+            .lastPosts {
+                a {
+                    &:first-child {
+                        &:hover {
+                            color: lighten($tuna, 15%);
+                        }
+                    }
+
+                    &:last-child {
+                        color: $tuna;
+
+                        &:hover {
+                            color: lighten($tuna, 15%);
+                        }
+                    }
+                }
+            }
+
+            .lastUsers {
+                a {
+                    &:hover {
+                        color: lighten($tuna, 15%);
+                    }
+                }
+            }
+
+            .lastMessages {
+                a {
+                    color: lighten($tuna, 15%);
+                }
+
+                p {
+                    color: $frenchGray;
+                }
+            }
+        }
+    }
+}

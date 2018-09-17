@@ -1,0 +1,232 @@
+@mixin breakpoint($minSize, $maxSize) {
+    @media only screen and (min-width: $minSize) and (max-width: $maxSize) {
+        @content;
+    }
+}
+
+@mixin maxBreakpoint($size) {
+    @media only screen and (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin minBreakpoint($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $desktop - 1px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin bg($bgColor) {
+    background-color: $bgColor;
+}
+
+@mixin bgImage($url, $repeat: no-repeat) {
+    background-image: url($url);
+    background-repeat: $repeat;
+}
+
+@mixin bgGradient($startColor, $endColor) {
+    background: -moz-linear-gradient(top, $startColor 5%, $endColor 100%);
+    background: -ms-linear-gradient(top, $startColor 5%, $endColor 100%);
+    background: -o-linear-gradient(top, $startColor 5%, $endColor 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, $startColor), color-stop(1, $endColor));
+    background: -webkit-linear-gradient(top, $startColor 5%, $endColor 100%);
+    background: linear-gradient(to bottom, $startColor 5%, $endColor 100%);
+}
+
+@mixin border($color: red, $size: 1px, $type: solid) {
+    border: $size $type $color;
+}
+
+@mixin boxShadow($h: 2px, $v: 2px, $blur: 2px, $opacity: 0.3, $inset: false) {
+    @if ($inset) {
+        box-shadow: inset $h $v $blur rgba(0, 0, 0, $opacity);
+    } @else {
+        box-shadow: $h $v $blur rgba(0, 0, 0, $opacity);
+    }
+}
+
+@mixin btn($startColor, $endColor, $borderColor, $shadowColor) {
+    @include bg($startColor);
+    @include bgGradient($startColor, $endColor);
+    @include border($borderColor);
+    @include prefix(box-shadow, inset 0px 1px 0px 0px $shadowColor);
+
+    &:hover {
+        @include bg($endColor);
+        @include bgGradient($endColor, $startColor);
+    }
+}
+
+@mixin center($margin: 0, $width: false, $display: false) {
+    margin: $margin auto;
+
+    @if $display != false {
+        display: $display;
+    }
+
+    @if $width != false {
+        width: $width;
+    }
+}
+
+@mixin centerAbsolute($width, $top: false, $bottom: false) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: $width;
+
+    @if $top != false {
+        top: $top;
+    }
+
+    @if $bottom != false {
+        bottom: $bottom;
+    }
+}
+
+@mixin clearfix() {
+    *zoom: 1;
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+    }
+}
+
+@mixin colorOpacity($a: 0.5, $r: 255, $g: 255, $b: 255) {
+    color: rgba($r, $g, $b, $a);
+}
+
+@mixin font($font, $size: false, $weight: false, $color: false) {
+    font-family: $font, sans-serif;
+
+    @if $weight != false {
+        font-weight: $weight;
+    }
+
+    @if $color != false {
+        color: $color;
+    }
+
+    @if $size != false {
+        @include fontSize($size);
+    }
+}
+
+@mixin fontFace($fontFamily, $fontFile) {
+    @font-face {
+        font-family: $fontFamily;
+        src: url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.eot');
+        src: url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.eot?#iefix') format('embedded-opentype'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.woff2') format('woff2'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.woff') format('woff'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.ttf') format('truetype'),
+            url('../assets/fonts/' + $fontFamily + '/' + $fontFile + '.svg#' + $fontFamily) format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+}
+
+@mixin fontSize($size, $weight: false) {
+    font-size: $size;
+    font-size: ($size / 16) + rem;
+
+    @if $weight != false {
+        font-weight: $weight;
+    }
+}
+
+@mixin faIcon($code, $color: $white, $size: 2em, $top: 14px, $right: 0px, $left: 15px, $width: 50px) {
+    color: $color;
+    content: "\\" + $code;
+    font-family: FontAwesome;
+    font-size: $size;
+    position: absolute;
+    left: $left;
+    right: $right;
+    top: $top;
+    width: $width;
+}
+
+@mixin placeholder($color) {
+    ::-webkit-input-placeholder {
+        color: $color;
+    }
+
+    :-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    ::-moz-placeholder {
+        color: $color;
+        opacity: 1;
+    }
+
+    ::-ms-input-placeholder {
+        color: $color;
+    }
+}
+
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -o-#{$property}: $value;
+    -ms-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin resetLink($color) {
+    text-decoration: none;
+    color: $color;
+}
+
+@mixin resetList() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin uppercase() {
+    text-transform: uppercase;
+}
+
+@mixin noSelect() {
+    outline: none;
+    touch-callout: none;
+    user-select: none;
+}
+
+@mixin noBorder() {
+    border: none;
+}
+
+@mixin noBackground() {
+    background: none;
+}
+
+@mixin noDisplay() {
+    display: none;
+}

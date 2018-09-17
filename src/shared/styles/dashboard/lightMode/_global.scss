@@ -1,0 +1,9 @@
+body {
+    @include bg($white);
+
+    input,
+    textarea {
+        @include bg($white);
+        color: $tuna;
+    }
+}

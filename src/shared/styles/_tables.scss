@@ -1,0 +1,232 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 25px;
+}
+
+.noData {
+    @include bg($black);
+    @include font($openSans, $regular);
+    @include uppercase();
+    color: $white;
+    margin-top: 70px;
+    padding: 5px;
+    text-align: center;
+    width: 165px;
+}
+
+.actions {
+    margin-top: 10px;
+    width: 305px;
+
+    @include mobile {
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+}
+
+.table {
+    @include bg($white);
+    width: 95%;
+
+    @include tablet {
+        width: 98%;
+    }
+
+    @include mobile {
+        width: 99%;
+    }
+
+    caption {
+        @include bg($white);
+        @include fontSize($xLarge);
+        color: $emperor;
+        border: 1px solid $gallery;
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+        padding: 25px 30px;
+        position: relative;
+        text-align: left;
+        text-transform: capitalize;
+
+        .caption {
+            float: left;
+        }
+
+        .total {
+            float: right;
+        }
+    }
+
+    thead {
+        @include bg($alabaster);
+
+        th {
+            @include fontSize($regular, $bold);
+            padding: 20px 8px;
+            text-transform: none;
+
+            &.darkMode {
+                color: $frenchGray;
+            }
+
+            input[type="checkbox"] {
+                transform: scale(1.2);
+            }
+
+            @include tablet {
+                @include fontSize($small, $bold);
+            }
+
+            @include mobile {
+                @include fontSize($smaller, $bold);
+            }
+        }
+
+        th[data-column="Dashboard.table.id"],
+        th[data-column="Dashboard.table.author"],
+        th[data-column="Dashboard.table.value"],
+        th[data-column="Dashboard.table.application"],
+        th[data-column="Dashboard.table.theme"] {
+            @include tablet {
+                display: none;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $gallery;
+
+            &:hover {
+                @include bg($alabaster);
+            }
+
+            td {
+                @include fontSize($regular);
+                height: 50px;
+                max-width: 220px;
+                overflow: hidden;
+                padding: 20px 20px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+                @include tablet {
+                    max-width: 190px;
+                }
+
+                input[type="checkbox"] {
+                    transform: scale(1.2);
+                }
+
+                a {
+                    color: $tuna;
+                }
+
+                @include tablet {
+                    @include fontSize($smaller);
+                }
+
+                @include mobile {
+                    @include fontSize($smaller);
+                    padding: 9px;
+                }
+            }
+
+            td[data-column="Dashboard.table.id"],
+            td[data-column="Dashboard.table.author"],
+            td[data-column="Dashboard.table.value"],
+            td[data-column="Dashboard.table.application"],
+            td[data-column="Dashboard.table.theme"] {
+                @include tablet {
+                    display: none;
+                }
+            }
+
+            td[data-column="Dashboard.table.user"],
+            td[data-column="Dashboard.table.createdAt"] {
+                text-align: center;
+            }
+        }
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .actions {
+        @include fontSize($large);
+        width: 50px;
+
+        .edit {
+            &:hover {
+                color: $dodgerBlue;
+            }
+        }
+
+        .delete {
+            &:hover {
+                color: $crimson;
+            }
+        }
+
+        .remove {
+            &:hover {
+                color: $red;
+            }
+        }
+
+        .restore {
+            &:hover {
+                color: $easternBlue;
+            }
+        }
+    }
+
+    /* Custom colors for rows */
+    .success {
+        border-left: 5px solid $fernFrond;
+
+        @include mobile {
+            border-left: 2px solid $fernFrond;
+        }
+    }
+
+    .info {
+        border-left: 5px solid $lochmara;
+
+        @include mobile {
+            border-left: 2px solid $lochmara;
+        }
+    }
+
+    .danger {
+        color: $crimson;
+        border-left: 5px solid $crimson;
+
+        @include mobile {
+            border-left: 2px solid $crimson;
+        }
+    }
+
+    .warning {
+        border-left: 5px solid $treePoppy;
+
+        @include mobile {
+            border-left: 2px solid $treePoppy;
+        }
+    }
+
+    /* Table colors */
+    &.grey {
+        @include border($alto);
+        color: $tuna;
+
+        thead {
+            th {
+                border-bottom: 1px solid $alto;
+                color: $boulder;
+            }
+        }
+    }
+}

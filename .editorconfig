@@ -11,7 +11,7 @@ insert_final_newline = true
 [*.hbs]
 indent_size = 4
 
-[*.styl]
+[*.scss]
 indent_size = 4
 
 [*.md]

@@ -1,0 +1,170 @@
+.login {
+    margin: 0 auto;
+
+    .wrapper {
+        @include font($openSans, $medium);
+        @include bg($white);
+        color: $emperor;
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-top: 200px;
+        overflow: hidden;
+        padding: 20px;
+        position: relative;
+        width: 500px;
+
+        @include mobile {
+            margin-top: 0px;
+            width: 320px;
+        }
+
+        .logo {
+            align-self: center;
+            width: 230px;
+
+            &.isotype {
+                width: auto;
+            }
+
+            &.center {
+                margin: 0 auto;
+            }
+
+            @include mobile {
+                padding: 20px 0px 20px 0px;
+                width: 197px;
+            }
+
+            a {
+                color: $doveGray;
+                display: block;
+                z-index: 200;
+
+                img {
+                    display: inline-block;
+                    margin: 0;
+                    margin-right: 5px;
+                    vertical-align: middle;
+                    width: 65px;
+                }
+
+                .brand {
+                    @include font($openSans, $xLarge, $bold);
+                    vertical-align: middle;
+
+                    .code {
+                        color: $lochmara;
+                    }
+                }
+            }
+        }
+
+        .success {
+            text-align: center;
+        }
+
+        .form {
+            @include placeholder($white);
+            position: relative;
+            height: 160px;
+            margin: 0 auto;
+            margin-top: 20px;
+            width: 90%;
+
+            .username,
+            .password,
+            .email {
+                @include font($openSans, $medium);
+                @include bg($mineShaft);
+                @include border($alto);
+                color: $white;
+                border-radius: 5px;
+                line-height: 1.4;
+                margin-bottom: 10px;
+                padding: 10px 0px 10px 0px;
+                text-indent: 10px;
+                width: 100%;
+            }
+
+            .required {
+                @include bg($vividTangerine);
+                @include border();
+            }
+
+            .login {
+                float: left;
+                margin-right: 10px;
+
+                @include mobile {
+                    margin-right: 5px;
+                }
+
+                .register {
+                    float: left;
+                }
+
+                .forgotPassword {
+                    @include resetLink($emperor);
+                    display: none;
+                    float: right;
+                    margin-top: 7px;
+
+                    &:hover {
+                        color: $torchRed;
+                    }
+
+                    @include mobile {
+                        @include fontSize($smaller);
+                        float: none;
+                    }
+                }
+            }
+
+            .socialLogin {
+                .wrapper {
+                    @include fontSize($large, $bold);
+                    margin: 0 auto;
+                    padding: 20px 0 20px 0px;
+                    width: 90%;
+
+                    @include mobile {
+                        @include fontSize($regular);
+                    }
+
+                    .icons {
+                        @include fontSize($xLarge);
+                        float: right;
+
+                        @include mobile {
+                            margin-top: -6px;
+                        }
+
+                        .facebook {
+                            color: $chambray;
+                            padding-right: 10px;
+                        }
+
+                        .twitter {
+                            color: $azureRadiance;
+                        }
+                    }
+                }
+            }
+        }
+
+        .copyRight {
+            @include font($openSans, $medium);
+            color: $boulder;
+            margin-top: 20px;
+            text-align: center;
+
+            @include mobile {
+                @include fontSize($small);
+
+                a {
+                    color: $torchRed;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+body {
+    @include font($sourceSansPro);
+    background-position: left;
+    background-repeat: repeat-y;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    @include tablet {
+        background-image: none;
+    }
+
+    input,
+    textarea {
+        outline: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .Main {
+        display: flex;
+    }
+}

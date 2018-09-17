@@ -1,0 +1,95 @@
+.Sidebar {
+    @include bg($mineShaft);
+    color: $white;
+    bottom: 0;
+    position: fixed;
+    top: 0;
+    width: 250px;
+    z-index: 1000;
+
+    &.hidden {
+        display: block;
+
+        @include tablet {
+            display: none;
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .wrapper {
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        padding-bottom: 40px;
+        position: relative;
+        z-index: 200;
+
+        .brand {
+            a {
+                @include fontSize($xLarge, $bold);
+                color: $white;
+                text-indent: 10px;
+            }
+        }
+
+        .title {
+            @include fontSize($smaller);
+            color: $boulder;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            padding-left: 30px;
+            text-transform: uppercase;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                position: relative;
+                transition: background-color .2s;
+
+                &.logout,
+                &.dashboard {
+                    .create {
+                        display: none;
+                    }
+                }
+
+                &.active {
+                    @include bg($codGray);
+                    box-shadow: inset 3px 0 0 0 $azureRadiance;
+                }
+
+                &:hover {
+                    @include bg($codGray);
+                }
+
+                a {
+                    @include fontSize($medium);
+                    color: $frenchGray;
+                    display: inline-block;
+                    padding: 10px 0 10px 30px;
+                    text-decoration: none;
+                    transition: background-color .2s;
+                    width: 66%;
+
+                    &.create {
+                        float: right;
+                        padding-right: 20px;
+                        text-align: center;
+                        width: 2%;
+                    }
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}

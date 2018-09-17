@@ -8,7 +8,7 @@ import exphbs from 'express-handlebars';
 import express from 'express';
 import path from 'path';
 import passport from 'passport';
-import stylus from 'stylus';
+import sassMiddleware from 'node-sass-middleware';
 import session from 'express-session';
 
 // Configuration
@@ -55,10 +55,10 @@ app.use(passport.session());
 // Compile Stylus on the fly
 if ($isLocal()) {
   app.use(
-    stylus.middleware({
+    sassMiddleware({
       src: path.resolve(`${__dirname}/../shared/styles`),
       dest: path.resolve(`${__dirname}/../../public/css`),
-      compile: (str, path) => stylus(str).set('filename', path).set('compress', true)
+      prefix: '/css'
     })
   );
 }

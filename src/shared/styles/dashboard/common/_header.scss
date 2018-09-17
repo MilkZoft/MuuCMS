@@ -1,0 +1,48 @@
+.navbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 80px;
+    min-width: 100%;
+    padding: 13px 30px;
+    position: relative;
+    margin-bottom: 20px;
+    position: relative;
+
+    i.theme {
+        @include fontSize(24px);
+        position: absolute;
+        left: 80%;
+        top: 40px;
+
+        @include maxBreakpoint(1600px) {
+            left: 70%;
+        }
+
+        @include tablet {
+            left: 85%;
+        }
+
+        @include mobile {
+            left: 75%;
+        }
+    }
+
+    h2 {
+        text-transform: capitalize;
+    }
+
+    nav {
+        display: none;
+
+        @include tablet {
+            display: block;
+        }
+
+        a {
+            @include fontSize($xxLarge + 4px);
+            color: $emperor;
+            cursor: pointer;
+        }
+    }
+}

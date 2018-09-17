@@ -1,0 +1,15 @@
+.Content {
+    .container {
+        .Create,
+        .Update {
+            .editor {
+                @include border($alto);
+            }
+
+            .select {
+                @include bg($white);
+                @include border($alto);
+            }
+        }
+    }
+}

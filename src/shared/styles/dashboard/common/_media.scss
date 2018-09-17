@@ -1,0 +1,212 @@
+.media {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: rgba($black, .3);
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    box-sizing: border-box;
+    padding: 30px;
+
+    @include mobile {
+        padding: 0;
+    }
+
+    .bodyMedia {
+        @include bg($bigStone);
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        padding-top: 100px;
+        box-sizing: border-box;
+
+        @include maxBreakpoint(960px) {
+            padding-top: 150px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            color: $white;
+            margin: 0;
+        }
+
+        .closeMedia {
+            @include fontSize($xLarge);
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: $white;
+        }
+
+        .uploadForm {
+            @include fontSize($small);
+            position: absolute;
+            top: 50px;
+            left: 15px;
+            color: $white;
+        }
+
+        .searchMedia {
+            position: absolute;
+            top: 40px;
+            right: 35px;
+
+            @include maxBreakpoint(960px) {
+                left: 15px;
+                top: 90px;
+            }
+
+            @include maxBreakpoint(340px) {
+                top: 110px;
+            }
+
+            input {
+                @include border($white);
+                @include fontSize($medium);
+                padding: 10px;
+                width: 180px;
+
+                @include mobile {
+                    width: 70%;
+                }
+            }
+        }
+
+        .files {
+            overflow-y: scroll;
+            height: 100%;
+        }
+
+        .fakeLink {
+            cursor: pointer;
+        }
+
+        .options {
+            @include bg($black);
+            @include fontSize($medium);
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            display: none;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            width: 100%;
+
+            a {
+                color: $white;
+                display: inline-block;
+                text-decoration: none;
+
+                &.insert {
+                    cursor: pointer;
+                    float: left;
+                    width: 50%;
+
+                    &:hover {
+                        @include bg($bigStone);
+                    }
+                }
+
+                &.download {
+                    float: left;
+                    width: 50%;
+
+                    &:hover {
+                        @include bg($bigStone);
+                    }
+                }
+            }
+        }
+
+        .file {
+            @include border($white, 2px, solid);
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            float: left;
+            height: 90px;
+            margin: 4px;
+            padding: 10px;
+            position: relative;
+            width: 21.5%;
+
+            &:hover {
+                .options {
+                    display: block;
+                }
+            }
+
+            @include breakpoint(949px, 1170px) {
+                width: 29%;
+            }
+
+            @include breakpoint(769px, 949px) {
+                width: 27%;
+            }
+
+            @include breakpoint(640px, 769px) {
+                width: 27.5% !important;
+            }
+
+            @include maxBreakpoint(450px) {
+                padding: 0;
+            }
+
+            @include tablet {
+                width: 28.5%;
+            }
+
+            @include mobile {
+                width: 92.8%;
+            }
+
+            &:hover {
+                @include border($dodgerBlue, 2px);
+            }
+
+            i {
+                @include centerAbsolute(50px);
+                @include fontSize(40px);
+                color: $white;
+
+                &.code {
+                    color: $doveGray;
+                }
+
+                &.pdf {
+                    color: $torchRed;
+                }
+
+                &.video {
+                    color: $easternBlue;
+                }
+
+                &.word {
+                    color: $dodgerBlue;
+                }
+
+                &.zip {
+                    color: $ripeLemon;
+                }
+            }
+
+            p {
+                @include fontSize($smaller);
+                color: $white;
+                margin-top: 50px;
+                text-align: center;
+
+                @include mobile {
+                    @include fontSize($xSmall);
+                }
+            }
+        }
+    }
+}

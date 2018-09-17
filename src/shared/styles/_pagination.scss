@@ -1,0 +1,61 @@
+.pagination {
+    @include resetList();
+    color: $tuna;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+
+    &.darkMode {
+        li {
+            a {
+                color: $white;
+            }
+        }
+    }
+
+    @include tablet {
+        @include fontSize($small);
+    }
+
+    @include mobile {
+        margin-left: 0;
+    }
+
+    li {
+        display: inline-block;
+        padding: 4px 6px 4px 0;
+        text-align: center;
+
+        @include mobile {
+            padding: 2px 3px 2px 0;
+        }
+
+        a {
+            color: $black;
+            border-radius: 5px;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+
+            @include mobile {
+                padding: 4px 8px;
+            }
+
+            &:hover {
+                @include bg($alto);
+                color: $black;
+            }
+
+            &.active {
+                @include bg($pictonBlue);
+                color: $white;
+                border-radius: 5px;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+    }
+}

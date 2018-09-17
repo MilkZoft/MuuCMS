@@ -1,0 +1,9 @@
+.navbar {
+    @include bg($white);
+    color: $emperor;
+    border-bottom: 1px solid $gallery;
+
+    i.theme {
+        color: $black;
+    }
+}

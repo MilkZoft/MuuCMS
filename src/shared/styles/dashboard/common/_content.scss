@@ -1,0 +1,309 @@
+.Content {
+    margin-bottom: 40px;
+    margin-left: 250px;
+    min-width: 100%;
+
+    @include tablet {
+        margin-bottom: 40px;
+        margin-left: 0;
+    }
+
+    .container {
+        padding-left: 20px;
+        width: 80%;
+
+        @include maxBreakpoint(1024px) {
+            width: 70%;
+        }
+
+        @include tablet {
+            width: 98%;
+        }
+
+        @include mobile {
+            padding-left: 7px;
+        }
+
+        h1 {
+            @include font($openSans);
+            @include uppercase();
+        }
+
+        &.readAction {
+            .readAction {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                position: relative;
+
+                @include tablet {
+                    display: block;
+                }
+
+                .backupLink {
+                    a {
+                        color: $boulder;
+                    }
+
+                    @include tablet {
+                        display: none;
+                    }
+                }
+
+                a.btn {
+                    @include mobile {
+                        width: 88%;
+                    }
+                }
+
+                .search {
+                    left: 220px;
+                    position: absolute;
+                    top: 15px;
+                    width: 80%;
+
+                    @include tablet {
+                        top: 0px;
+                    }
+
+                    @include mobile {
+                        display: none;
+                    }
+
+                    input[type="text"] {
+                        @include fontSize($small);
+                        position: absolute;
+                        color: $tuna;
+                        height: 34px;
+                        margin-right: 10px;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        width: 163px;
+                    }
+
+                    input[type="submit"] {
+                        position: absolute;
+                        left: 190px;
+                    }
+
+                    .searching {
+                        @include fontSize($small);
+                        position: absolute;
+                        top: 100px;
+                    }
+                }
+            }
+        }
+
+        .Create,
+        .Update {
+            h2 {
+                @include font($openSans);
+                @include uppercase();
+            }
+
+            .errorBorder {
+                @include border($red);
+            }
+
+            .pointer {
+                cursor: pointer;
+            }
+
+            .leftBlock {
+                float: left;
+                width: 65%;
+            }
+
+            .rightBlock {
+                float: left;
+                width: 30%;
+            }
+
+            .centralBlock {
+                float: left;
+                width: 90%;
+            }
+
+            .inputBlock {
+                label {
+                    font-weight: bold;
+
+                    .errorMessage {
+                        @include fontSize($smaller);
+                        color: $red;
+                    }
+                }
+            }
+
+            .input {
+                height: 40px;
+                padding: 5px;
+                width: 90%;
+
+                @include mobile {
+                    width: 95%
+                }
+            }
+
+            .editor {
+                @include border($alto);
+                height: 400px;
+                padding: 5px;
+                width: 91%;
+
+                @include mobile {
+                    width: 98%;
+                }
+            }
+
+            .select {
+                @include bg($white);
+                @include border($alto);
+                @include fontSize($regular, $normal);
+                @include prefix(box-sizing, border-box);
+                height: 54px;
+                line-height: 54px;
+                padding-left: 5px;
+                text-transform: capitalize;
+                vertical-align: middle;
+                width: 56%;
+
+                &.temporal {
+                    text-transform: none;
+                }
+            }
+
+            .submit {
+                text-transform: capitalize;
+
+                @include tablet {
+                    display: block;
+                    margin-bottom: 90px;
+                    margin-top: 30px;
+                    width: 25%;
+                }
+            }
+
+            #codes {
+                @include font($sourceCodePro, $smaller);
+            }
+        }
+
+        .Home {
+            align-items: start;
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 50px;
+
+            @include tablet {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            h4 {
+                @include fontSize($medium);
+                color: $doveGray;
+                padding: 0 0 20px 0;
+            }
+
+            .wrap {
+                @include border($gallery);
+                border-radius: 4px;
+                padding: 25px;
+
+                li {
+                    align-items: center;
+                    border-bottom: 1px solid $gallery;
+                    display: flex;
+                    padding: 11px 0;
+                }
+            }
+
+            .lastPosts {
+                grid-column: 1 / span 3;
+
+                @include tablet {
+                    grid-row: 1 / span 1;
+                }
+
+                li {
+                    justify-content: space-between;
+
+                    a {
+                        &:first-child {
+                            margin-right: 10px;
+                        }
+
+                        &:hover {
+                            color: $dodgerBlue;
+                        }
+
+                        &:last-child {
+                            color: $dodgerBlue;
+                        }
+
+                        &:hover {
+                            color: $lochmara;
+                        }
+                    }
+                }
+            }
+
+            .lastUsers {
+                @include tablet {
+                    grid-row: 2 / span 1;
+                }
+
+                img {
+                    border-radius: 50%;
+                    display: block;
+                    height: 20px;
+                    width: 20px;
+                }
+
+                a {
+                    margin: 0 10px;
+                }
+
+                span {
+                    @include fontSize($smaller);
+                    color: $dustyGray;
+                }
+            }
+
+            .lastMessages {
+                grid-column: 2 / span 2;
+
+                @include tablet {
+                    grid-row: 3 / span 1;
+                }
+
+                li {
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    a {
+                        color: $dodgerBlue;
+                        margin-bottom: 10px;
+
+                        &:hover {
+                            color: $lochmara;
+                        }
+                    }
+                }
+            }
+
+            .lastMessages,
+            .lastUsers,
+            .lastPosts {
+                @include bg($white);
+
+                @include tablet {
+                    grid-column: 1 / span 1;
+                }
+            }
+        }
+    }
+}
