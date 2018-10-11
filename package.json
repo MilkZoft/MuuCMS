@@ -6,7 +6,7 @@
     "lint:fix": "eslint --ext .jsx,.js --fix src",
     "precommit": "npm run lint",
     "prepush": "npm run test",
-    "start": "cross-env NODE_ENV=local BABEL_ENV=local babel-watch src/server --presets es2015,stage-0,stage-2",
+    "start": "cross-env NODE_ENV=local BABEL_ENV=local babel-watch src/backend --presets es2015,stage-0,stage-2",
     "stop": "pm2 kill",
     "test": "node scripts/test.js src --env=jsdom",
     "test:coverage": "node scripts/test.js src --coverage --env=jsdom"

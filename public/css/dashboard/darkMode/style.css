@@ -63,7 +63,7 @@ table {
   width: 95%;
   /* Custom colors for rows */
   /* Table colors */ }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (max-width: 1023px) {
     .table {
       width: 98%; } }
   @media (max-width: 640px) {
@@ -97,7 +97,7 @@ table {
         color: #CCC; }
       .table thead th input[type="checkbox"] {
         transform: scale(1.2); }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .table thead th {
           font-size: 13px;
           font-size: 0.8125pxrem;
@@ -107,7 +107,7 @@ table {
           font-size: 12px;
           font-size: 0.75pxrem;
           font-weight: 700; } }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .table thead th[data-column="Dashboard.table.id"],
       .table thead th[data-column="Dashboard.table.author"],
       .table thead th[data-column="Dashboard.table.value"],
@@ -127,14 +127,14 @@ table {
       padding: 20px 20px;
       text-overflow: ellipsis;
       white-space: nowrap; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .table tbody tr td {
           max-width: 190px; } }
       .table tbody tr td input[type="checkbox"] {
         transform: scale(1.2); }
       .table tbody tr td a {
         color: #333; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .table tbody tr td {
           font-size: 12px;
           font-size: 0.75pxrem; } }
@@ -143,7 +143,7 @@ table {
           font-size: 12px;
           font-size: 0.75pxrem;
           padding: 9px; } }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .table tbody tr td[data-column="Dashboard.table.id"],
       .table tbody tr td[data-column="Dashboard.table.author"],
       .table tbody tr td[data-column="Dashboard.table.value"],
@@ -223,7 +223,7 @@ table {
   width: 100%; }
   .pagination.darkMode li a {
     color: #FFF; }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (max-width: 1023px) {
     .pagination {
       font-size: 13px;
       font-size: 0.8125pxrem; } }
@@ -440,10 +440,8 @@ table {
 /* Common styles */
 .media {
   position: fixed;
-  top: 0px, false, false, 0% [0];
-  right: 0px, false, false, 0% [1];
-  bottom: 0px, false, false, 0% [2];
-  left: 0px, false, false, 0% [3];
+  top: 0px;
+  left: 0px;
   background-color: rgba(0, 0, 0, 0.3);
   width: 100%;
   height: 100%;
@@ -466,33 +464,29 @@ table {
         padding-top: 150px; } }
     .media .bodyMedia h2 {
       position: absolute;
-      top: 10px, false, false, 15px [0];
-      right: 10px, false, false, 15px [1];
-      bottom: 10px, false, false, 15px [2];
-      left: 10px, false, false, 15px [3];
+      top: 10px;
+      left: 15px;
       color: #FFF;
       margin: 0; }
     .media .bodyMedia .closeMedia {
       font-size: 24px;
       font-size: 1.5pxrem;
       position: absolute;
-      top: 10px, 10px [0];
-      right: 10px, 10px [1];
+      top: 10px;
+      right: 10px;
       cursor: pointer;
       color: #FFF; }
     .media .bodyMedia .uploadForm {
       font-size: 13px;
       font-size: 0.8125pxrem;
       position: absolute;
-      top: 50px, false, false, 15px [0];
-      right: 50px, false, false, 15px [1];
-      bottom: 50px, false, false, 15px [2];
-      left: 50px, false, false, 15px [3];
+      top: 50px;
+      left: 15px;
       color: #FFF; }
     .media .bodyMedia .searchMedia {
       position: absolute;
-      top: 40px, 35px [0];
-      right: 40px, 35px [1]; }
+      top: 40px;
+      right: 35px; }
       @media only screen and (max-width: 960px) {
         .media .bodyMedia .searchMedia {
           left: 15px;
@@ -519,10 +513,8 @@ table {
       font-size: 14px;
       font-size: 0.875pxrem;
       position: absolute;
-      top: false, false, 0px, 0px [0];
-      right: false, false, 0px, 0px [1];
-      bottom: false, false, 0px, 0px [2];
-      left: false, false, 0px, 0px [3];
+      bottom: 0px;
+      left: 0px;
       display: none;
       height: 50px;
       line-height: 50px;
@@ -569,7 +561,7 @@ table {
       @media only screen and (max-width: 450px) {
         .media .bodyMedia .file {
           padding: 0; } }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .media .bodyMedia .file {
           width: 28.5%; } }
       @media (max-width: 640px) {
@@ -615,7 +607,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (max-width: 1023px) {
     body {
       background-image: none; } }
   body input,
@@ -647,7 +639,7 @@ body {
     @media only screen and (max-width: 1600px) {
       .navbar i.theme {
         left: 70%; } }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .navbar i.theme {
         left: 85%; } }
     @media (max-width: 640px) {
@@ -657,7 +649,7 @@ body {
     text-transform: capitalize; }
   .navbar nav {
     display: none; }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .navbar nav {
         display: block; } }
     .navbar nav a {
@@ -670,7 +662,7 @@ body {
   margin-bottom: 40px;
   margin-left: 250px;
   min-width: 100%; }
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (max-width: 1023px) {
     .Content {
       margin-bottom: 40px;
       margin-left: 0; } }
@@ -680,7 +672,7 @@ body {
     @media only screen and (max-width: 1024px) {
       .Content .container {
         width: 70%; } }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .Content .container {
         width: 98%; } }
     @media (max-width: 640px) {
@@ -694,12 +686,12 @@ body {
       flex-direction: column;
       flex-wrap: wrap;
       position: relative; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .Content .container.readAction .readAction {
           display: block; } }
       .Content .container.readAction .readAction .backupLink a {
         color: #777; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .Content .container.readAction .readAction .backupLink {
           display: none; } }
       @media (max-width: 640px) {
@@ -710,7 +702,7 @@ body {
         position: absolute;
         top: 15px;
         width: 80%; }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (max-width: 1023px) {
           .Content .container.readAction .readAction .search {
             top: 0px; } }
         @media (max-width: 640px) {
@@ -728,15 +720,12 @@ body {
           width: 163px; }
         .Content .container.readAction .readAction .search input[type="submit"] {
           position: absolute;
-          top: false, false, false, 190px [0];
-          right: false, false, false, 190px [1];
-          bottom: false, false, false, 190px [2];
-          left: false, false, false, 190px [3]; }
+          left: 190px; }
         .Content .container.readAction .readAction .search .searching {
           font-size: 13px;
           font-size: 0.8125pxrem;
           position: absolute;
-          top: 45px [0]; }
+          top: 100px; }
     .Content .container .Create h2,
     .Content .container .Update h2 {
       font-family: "OpenSans", sans-serif;
@@ -810,7 +799,7 @@ body {
     .Content .container .Create .submit,
     .Content .container .Update .submit {
       text-transform: capitalize; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .Content .container .Create .submit,
         .Content .container .Update .submit {
           display: block;
@@ -828,7 +817,7 @@ body {
       grid-gap: 20px;
       grid-template-columns: repeat(3, 1fr);
       padding: 50px; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .Content .container .Home {
           grid-template-columns: 1fr;
           padding: 20px; } }
@@ -848,7 +837,7 @@ body {
           padding: 11px 0; }
       .Content .container .Home .lastPosts {
         grid-column: 1 / span 3; }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (max-width: 1023px) {
           .Content .container .Home .lastPosts {
             grid-row: 1 / span 1; } }
         .Content .container .Home .lastPosts li {
@@ -861,7 +850,7 @@ body {
             color: #2EA1F8; }
           .Content .container .Home .lastPosts li a:hover {
             color: #0073BC; }
-      @media (min-width: 768px) and (max-width: 1023px) {
+      @media (max-width: 1023px) {
         .Content .container .Home .lastUsers {
           grid-row: 2 / span 1; } }
       .Content .container .Home .lastUsers img {
@@ -877,7 +866,7 @@ body {
         color: #999; }
       .Content .container .Home .lastMessages {
         grid-column: 2 / span 2; }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (max-width: 1023px) {
           .Content .container .Home .lastMessages {
             grid-row: 3 / span 1; } }
         .Content .container .Home .lastMessages li {
@@ -892,7 +881,7 @@ body {
       .Content .container .Home .lastUsers,
       .Content .container .Home .lastPosts {
         background-color: #FFF; }
-        @media (min-width: 768px) and (max-width: 1023px) {
+        @media (max-width: 1023px) {
           .Content .container .Home .lastMessages,
           .Content .container .Home .lastUsers,
           .Content .container .Home .lastPosts {
@@ -908,7 +897,7 @@ body {
   z-index: 1000; }
   .Sidebar.hidden {
     display: block; }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    @media (max-width: 1023px) {
       .Sidebar.hidden {
         display: none; } }
     @media (max-width: 640px) {
