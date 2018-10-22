@@ -148,13 +148,17 @@ Router.get('/:application', (req, res) => {
     orderBy,
     searchBy,
     searchTerm,
-    fields
+    fields,
+    page
   } = sanitize(req.query);
 
   const apiParams = {
     application,
     action,
-    appParams,
+    appParams: {
+      page,
+      ...appParams
+    },
     query,
     all,
     order,
